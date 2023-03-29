@@ -6,7 +6,7 @@ int main()
 {
 	char F1C1{}, F1C2{}, F1C3{}, F1C4{}, F1C5{}, F2C1{}, F2C2{}, F2C3{}, F2C4{}, F2C5{}, F3C1{}, F3C2{}, F3C3{}, F3C4{}, F3C5{}, F4C1{}, F4C2{}, F4C3{}, F4C4{}, F4C5{}, F5C1{}, F5C2{}, F5C3{}, F5C4{}, F5C5{};
 	int i{ 0 }, Fila{ 0 }, Columna{ 0 }, ptsJ1{ 0 }, ptsJ2{0};
-	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, tmp{};
+	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, tmp{}, reset{false};
 	char s{ 'S' }, o{ 'O' },eleccion{' '};
 
 	do
@@ -97,6 +97,12 @@ int main()
 				if (F1C1 != s || F1C1 != o)
 				{		
 					F1C1 = eleccion;
+				}
+				else
+				{
+					cout << "Reingrese una ubicación: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 2)
