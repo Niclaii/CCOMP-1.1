@@ -7,7 +7,7 @@ int main()
 	char F1C1{}, F1C2{}, F1C3{}, F1C4{}, F1C5{}, F2C1{}, F2C2{}, F2C3{}, F2C4{}, F2C5{}, F3C1{}, F3C2{}, F3C3{}, F3C4{}, F3C5{}, F4C1{}, F4C2{}, F4C3{}, F4C4{}, F4C5{}, F5C1{}, F5C2{}, F5C3{}, F5C4{}, F5C5{};
 	int i{ 0 }, Fila{ 0 }, Columna{ 0 }, ptsJ1{ 0 }, ptsJ2{0};
 	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, tmp{}, reset{false};
-	char s{ 'S' }, o{ 'O' },eleccion{' '};
+	char s{ 'S' }, o{ 'O' }, eleccion{ ' ' }, vacio{' '};
 
 	do
 	{
@@ -27,7 +27,6 @@ int main()
 			std::cout << "turno de Jugador 1\n";
 			cout << "\n";
 		}
-
 		if (jugador2)
 		{
 			std::cout << "turno de Jugador 2\n";
@@ -70,7 +69,6 @@ int main()
 				std::cout << "Reingrese un numero entre el 1 a 5." << endl;
 				cout << "\n";
 			}
-
 		}
 		while (true)
 		{
@@ -87,190 +85,357 @@ int main()
 				cout << "\n";
 			}
 		}	
-
 		//JUGADOR 1
-
 		if (jugador1)
 		{
 			if (Fila == 1 && Columna == 1)
 			{
-				if (F1C1 != s || F1C1 != o)
+				if (F1C1 != s && F1C1 != o)
 				{		
 					F1C1 = eleccion;
 				}
 				else
 				{
-					cout << "Reingrese una ubicación: \n";
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
 					i = i - 1;
 					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 2)
 			{
-				if (F1C2 != s || F1C2 != o)
+				if (F1C2 != s && F1C2 != o)
 				{
 					F1C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 3)
 			{
-				if (F1C3 != s || F1C3 != o)
+				if (F1C3 != s && F1C3 != o)
 				{
 					F1C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 4)
 			{
-				if (F1C4 != s || F1C4 != o)
+				if (F1C4 != s && F1C4 != o)
 				{
 					F1C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 5)
 			{
-				if (F1C5 != s || F1C5 != o)
+				if (F1C5 != s && F1C5 != o)
 				{
 					F1C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 1)
 			{
-				if (F2C1 != s || F2C1 != o)
+				if (F2C1 != s && F2C1 != o)
 				{
 					F2C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 2)
 			{
-				if (F2C2 != s || F2C2 != o)
+				if (F2C2 != s && F2C2 != o)
 				{
 					F2C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 3)
 			{
-				if (F2C3 != s || F2C3 != o)
+				if (F2C3 != s && F2C3 != o)
 				{
 					F2C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 4)
 			{
-				if (F2C4 != s || F2C4 != o)
+				if (F2C4 != s && F2C4 != o)
 				{
 					F2C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 5)
 			{
-				if (F2C5 != s || F2C5 != o)
+				if (F2C5 != s && F2C5 != o)
 				{
 					F2C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 1)
 			{
-				if (F3C1 != s || F3C1 != o)
+				if (F3C1 != s && F3C1 != o)
 				{
 					F3C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 2)
 			{
-				if (F3C2 != s || F3C2 != o)
+				if (F3C2 != s && F3C2 != o)
 				{
 					F3C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 3)
 			{
-				if (F3C3 != s || F3C3 != o)
+				if (F3C3 != s && F3C3 != o)
 				{
 					F3C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 4)
 			{
-				if (F3C4 != s || F3C4 != o)
+				if (F3C4 != s && F3C4 != o)
 				{
 					F3C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 5)
 			{
-				if (F3C5 != s || F3C5 != o)
+				if (F3C5 != s && F3C5 != o)
 				{
 					F3C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 1)
 			{
-				if (F4C1 != s || F4C1 != o)
+				if (F4C1 != s && F4C1 != o)
 				{
 					F4C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 2)
 			{
-				if (F4C2 != s || F4C2 != o)
+				if (F4C2 != s && F4C2 != o)
 				{
 					F4C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 3)
 			{
-				if (F4C3 != s || F4C3 != o)
+				if (F4C3 != s && F4C3 != o)
 				{
 					F4C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 4)
 			{
-				if (F4C4 != s || F4C4 != o)
+				if (F4C4 != s && F4C4 != o)
 				{
 					F4C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 5)
 			{
-				if (F4C5 != s || F4C5 != o)
+				if (F4C5 != s && F4C5 != o)
 				{
 					F4C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 1)
 			{
-				if (F5C1 != s || F5C1 != o)
+				if (F5C1 != s && F5C1 != o)
 				{
 					F5C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 2)
 			{
-				if (F5C2 != s || F5C2 != o)
+				if (F5C2 != s && F5C2 != o)
 				{
 					F5C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 3)
 			{
-				if (F5C3 != s || F5C3 != o)
+				if (F5C3 != s && F5C3 != o)
 				{
 					F5C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 4)
 			{
-				if (F5C4 != s || F5C4 != o)
+				if (F5C4 != s && F5C4 != o)
 				{
 					F5C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 5)
 			{
-				if (F5C5 != s || F5C5 != o)
+				if (F5C5 != s && F5C5 != o)
 				{
 					F5C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 		}
@@ -279,177 +444,352 @@ int main()
 		{
 			if (Fila == 1 && Columna == 1)
 			{
-				if (F1C1 != s || F1C1 != o)
+				if (F1C1 != s && F1C1 != o)
 				{
 					F1C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 2)
 			{
-				if (F1C2 != s || F1C2 != o)
+				if (F1C2 != s && F1C2 != o)
 				{
 					F1C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 3)
 			{
-				if (F1C3 != s || F1C3 != o)
+				if (F1C3 != s && F1C3 != o)
 				{
 					F1C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 4)
 			{
-				if (F1C4 != s || F1C4 != o)
+				if (F1C4 != s && F1C4 != o)
 				{
 					F1C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 1 && Columna == 5)
 			{
-				if (F1C5 != s || F1C5 != o)
+				if (F1C5 != s && F1C5 != o)
 				{
 					F1C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 1)
 			{
-				if (F2C1 != s || F2C1 != o)
+				if (F2C1 != s && F2C1 != o)
 				{
 					F2C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 2)
 			{
-				if (F2C2 != s || F2C2 != o)
+				if (F2C2 != s && F2C2 != o)
 				{
 					F2C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 3)
 			{
-				if (F2C3 != s || F2C3 != o)
+				if (F2C3 != s && F2C3 != o)
 				{
 					F2C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 4)
 			{
-				if (F2C4 != s || F2C4 != o)
+				if (F2C4 != s && F2C4 != o)
 				{
 					F2C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 2 && Columna == 5)
 			{
-				if (F2C5 != s || F2C5 != o)
+				if (F2C5 != s && F2C5 != o)
 				{
 					F2C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 1)
 			{
-				if (F3C1 != s || F3C1 != o)
+				if (F3C1 != s && F3C1 != o)
 				{
 					F3C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 2)
 			{
-				if (F3C2 != s || F3C2 != o)
+				if (F3C2 != s && F3C2 != o)
 				{
 					F3C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 3)
 			{
-				if (F3C3 != s || F3C3 != o)
+				if (F3C3 != s && F3C3 != o)
 				{
 					F3C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 4)
 			{
-				if (F3C4 != s || F3C4 != o)
+				if (F3C4 != s && F3C4 != o)
 				{
 					F3C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 3 && Columna == 5)
 			{
-				if (F3C5 != s || F3C5 != o)
+				if (F3C5 != s && F3C5 != o)
 				{
 					F3C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 1)
 			{
-				if (F4C1 != s || F4C1 != o)
+				if (F4C1 != s && F4C1 != o)
 				{
 					F4C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 2)
 			{
-				if (F4C2 != s || F4C2 != o)
+				if (F4C2 != s && F4C2 != o)
 				{
 					F4C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 3)
 			{
-				if (F4C3 != s || F4C3 != o)
+				if (F4C3 != s && F4C3 != o)
 				{
 					F4C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 4)
 			{
-				if (F4C4 != s || F4C4 != o)
+				if (F4C4 != s && F4C4 != o)
 				{
 					F4C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 4 && Columna == 5)
 			{
-				if (F4C5 != s || F4C5 != o)
+				if (F4C5 != s && F4C5 != o)
 				{
 					F4C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 1)
 			{
-				if (F5C1 != s || F5C1 != o)
+				if (F5C1 != s && F5C1 != o)
 				{
 					F5C1 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 2)
 			{
-				if (F5C2 != s || F5C2 != o)
+				if (F5C2 != s && F5C2 != o)
 				{
 					F5C2 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 3)
 			{
-				if (F5C3 != s || F5C3 != o)
+				if (F5C3 != s && F5C3 != o)
 				{
 					F5C3 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 4)
 			{
-				if (F5C4 != s || F5C4 != o)
+				if (F5C4 != s && F5C4 != o)
 				{
 					F5C4 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 			else if (Fila == 5 && Columna == 5)
 			{
-				if (F5C5 != s || F5C5 != o)
+				if (F5C5 != s && F5C5 != o)
 				{
 					F5C5 = eleccion;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
 				}
 			}
 		}
@@ -460,7 +800,6 @@ int main()
 				  << F3C1 << " | " << F3C2 << " | " << F3C3 << " | " << F3C4 << " | " << F3C5 << " \n " << "---------------" << "\n"
 				  << F4C1 << " | " << F4C2 << " | " << F4C3 << " | " << F4C4 << " | " << F4C5 << " \n " << "---------------" << "\n"
 				  << F5C1 << " | " << F5C2 << " | " << F5C3 << " | " << F5C4 << " | " << F5C5 << endl;
-
 		i++;
 		
 		//ROTAR TURNOS Y REINICIAR VARIABLES
@@ -469,7 +808,7 @@ int main()
 			tmp = jugador1;
 			jugador1 = jugador2;
 			jugador2 = tmp;
-			Columna = 0;
+			Fila = 0;
 			Columna = 0;
 			eleccion = ' ';
 		}
