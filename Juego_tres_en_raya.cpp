@@ -222,6 +222,7 @@ int main()
 						cout << "Reingrese una ubicacion: \n";
 						i = i - 1;
 						reset = true;
+						resetU = true;
 					}
 				}
 				else if (ubi == 2)
@@ -651,7 +652,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -673,7 +674,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -695,7 +696,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -717,7 +718,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -739,7 +740,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -761,7 +762,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -783,7 +784,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -806,7 +807,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -828,7 +829,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -850,7 +851,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -872,7 +873,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -894,7 +895,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -916,7 +917,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -938,7 +939,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -974,7 +975,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -997,7 +998,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1020,7 +1021,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1043,7 +1044,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1066,7 +1067,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1088,7 +1089,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1111,7 +1112,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1135,7 +1136,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1157,7 +1158,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1179,7 +1180,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1201,7 +1202,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1223,7 +1224,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1245,7 +1246,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1267,7 +1268,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
@@ -1293,7 +1294,7 @@ int main()
 				}
 				else if (alternativa3 == 2)
 				{
-					rematch == false;
+					break;
 				}
 				else
 				{
