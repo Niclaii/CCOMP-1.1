@@ -48,10 +48,13 @@ int main()
 
 	//
 
-	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, IA{ false }, tmp{}, reset{ false }, resetU{ false }, multijugador{ false }, singleplayer{ false }, seleccion{ false }, rematch{ false }, win{false};
-	int ubi{ 0 }, i{ 0 }, alternativa{ 0 }, alternativa2{ 0 }, alternativa3{0}; // ubi = ubicacion - I= turno +1
-	char x{' '}, o{' '};
+	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, IA{ false }, tmp{}, reset{ false }, resetU{ false }, multijugador{ false }, singleplayer{ false }, seleccion{ false }, rematch{ false }, win{ false };
+	int ubi{ 0 }, i{ 0 }, alternativa{ 0 }, alternativa2{ 0 }, alternativa3{ 0 }; // ubi = ubicacion - I= turno +1
+	char x{ ' ' }, o{ ' ' };
 	char F1{ ' ' }, F2{ ' ' }, F3{ ' ' }, F4{ ' ' }, F5{ ' ' }, F6{ ' ' }, F7{ ' ' }, F8{ ' ' }, F9{ ' ' };
+	
+	srand(time(nullptr)); 
+	std::srand(1);
 
 	do
 	{
@@ -75,7 +78,7 @@ int main()
 			}
 			else if (alternativa == 2)
 			{
-				singleplayer = true;
+				
 
 				cout << "En que dificultad desea jugar?\n1.Facil\n2.Medio(Pronto)\n3.Dificil(Pronto)\n" << endl;
 				cin >> alternativa2;
@@ -83,6 +86,7 @@ int main()
 
 				if (alternativa2 == 1)
 				{
+					singleplayer = true;
 					cout << "Ingrese la letra que quiere usar el Jugador 1:" << x;
 					cin >> x;
 					cout << "Ingrese la letra que quiere usar para la IA" << o;
@@ -93,6 +97,7 @@ int main()
 				}
 				if (alternativa2 == 2)
 				{
+					singleplayer = true;
 					cout << "no disponible temporalmente. Por favor ingrese otra opcion.\n" << endl;
 					/*cout << "Ingrese la letra que quiere usar el Jugador 1:" << x;
 					cin >> x;
@@ -102,6 +107,7 @@ int main()
 				}
 				if (alternativa2 == 3)
 				{
+					singleplayer = true;
 					cout << "no disponible temporalmente. Por favor ingrese otra opcion.\n" << endl;
 					/*cout << "Ingrese la letra que quiere usar el Jugador 1:" << x;
 					cin >> x;
@@ -122,46 +128,7 @@ int main()
 				alternativa = 0;
 			}
 		}
-		if (rematch == true && multijugador == true)
-		{
-			rematch == false;
-			F1 = ' ';
-			F2 = ' ';
-			F3 = ' ';
-			F4 = ' ';
-			F5 = ' ';
-			F6 = ' ';
-			F7 = ' ';
-			F8 = ' ';
-			F9 = ' ';
-			i = 0;
-			seleccion = true;
-			jugador1 = true;
-			jugador2 = false;
-			primerapasada = true;
-		}
-		else if (rematch == true && singleplayer == true)
-		{
-			rematch == false;
-			F1 = ' ';
-			F2 = ' ';
-			F3 = ' ';
-			F4 = ' ';
-			F5 = ' ';
-			F6 = ' ';
-			F7 = ' ';
-			F8 = ' ';
-			F9 = ' ';
-			i = 0;
-			seleccion = true;
-			jugador1 = true;
-			IA = false;
-			primerapasada = true;
-		}
-		else
-		{
-			win == true;
-		}
+		
 		//PRIMERA PASADA
 		if (primerapasada)
 		{
@@ -206,147 +173,145 @@ int main()
 			}
 		}
 		//JUGADOR 1
-		if (singleplayer == true || multijugador == true)
+		if (jugador1)
 		{
-			if (jugador1)
+			if (ubi == 1)
 			{
-				if (ubi == 1)
+				if (F1 != x && F1 != o)
 				{
-					if (F1 != x && F1 != o)
-					{
-						F1 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					F1 = x;
 				}
-				else if (ubi == 2)
+				else
 				{
-					if (F2 != x && F2 != o)
-					{
-						F2 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
 				}
-				else if (ubi == 3)
+			}
+			else if (ubi == 2)
+			{
+				if (F2 != x && F2 != o)
 				{
-					if (F3 != x && F3 != o)
-					{
-						F3 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					F2 = x;
 				}
-				else if (ubi == 4)
+				else
 				{
-					if (F4 != x && F4 != o)
-					{
-						F4 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
 				}
-				else if (ubi == 5)
+			}
+			else if (ubi == 3)
+			{
+				if (F3 != x && F3 != o)
 				{
-					if (F5 != x && F5 != o)
-					{
-						F5 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					F3 = x;
 				}
-				else if (ubi == 6)
+				else
 				{
-					if (F6 != x && F6 != o)
-					{
-						F6 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
 				}
-				else if (ubi == 7)
+			}
+			else if (ubi == 4)
+			{
+				if (F4 != x && F4 != o)
 				{
-					if (F7 != x && F7 != o)
-					{
-						F7 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					F4 = x;
 				}
-				else if (ubi == 8)
+				else
 				{
-					if (F8 != x && F8 != o)
-					{
-						F8 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
 				}
-				else if (ubi == 9)
+			}
+			else if (ubi == 5)
+			{
+				if (F5 != x && F5 != o)
 				{
-					if (F9 != x && F9 != o)
-					{
-						F9 = x;
-					}
-					else
-					{
-						cout << "\n";
-						cout << "Reingrese una ubicacion: \n";
-						i = i - 1;
-						reset = true;
-						resetU = true;
-					}
+					F5 = x;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
+				}
+			}
+			else if (ubi == 6)
+			{
+				if (F6 != x && F6 != o)
+				{
+					F6 = x;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
+				}
+			}
+			else if (ubi == 7)
+			{
+				if (F7 != x && F7 != o)
+				{
+					F7 = x;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
+				}
+			}
+			else if (ubi == 8)
+			{
+				if (F8 != x && F8 != o)
+				{
+					F8 = x;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
+				}
+			}
+			else if (ubi == 9)
+			{
+				if (F9 != x && F9 != o)
+				{
+					F9 = x;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Reingrese una ubicacion: \n";
+					i = i - 1;
+					reset = true;
+					resetU = true;
 				}
 			}
 		}
+	
 
 		//JUGADOR 2
 		if (multijugador == true)
@@ -495,9 +460,20 @@ int main()
 		if (singleplayer == true)
 		{
 			if (IA)
-			{			
-				int random = 1 + rand() % 10;
+			{
+				int random = rand();
+				
+				cout << random << endl;
+
+				while(true) 
+				{
+					random = 1 + std::rand()/((RAND_MAX + 1u)/9);  // Note: 1+rand()%6 is biased
+        			break;
+				}
+           		
 				ubi = random;
+
+
 
 				if (ubi == 1)
 				{
@@ -616,15 +592,12 @@ int main()
 
 		//ROTAR TURNOS Y REINICIAR VARIABLES
 
-		if (multijugador == true)
+		if (multijugador == true && reset == false)
 		{
-			if (reset == false)
-			{
-				tmp = jugador1;
-				jugador1 = jugador2;
-				jugador2 = tmp;
-				ubi = 0;
-			}
+			tmp = jugador1;
+			jugador1 = jugador2;
+			jugador2 = tmp;
+			ubi = 0;
 		}
 		if (singleplayer == true)
 		{
@@ -965,7 +938,7 @@ int main()
 			if (F1 == x && F2 == x && F3 == x)
 			{
 				cout << "Humano Gana!" << endl;
-				
+
 				cout << "\n";
 				cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
 				cin >> alternativa3;
@@ -1305,11 +1278,53 @@ int main()
 				}
 			}
 		}
+		if (rematch == true && multijugador == true)
+		{
+			rematch == false;
+			F1 = ' ';
+			F2 = ' ';
+			F3 = ' ';
+			F4 = ' ';
+			F5 = ' ';
+			F6 = ' ';
+			F7 = ' ';
+			F8 = ' ';
+			F9 = ' ';
+			i = 0;
+			seleccion = true;
+			jugador1 = true;
+			jugador2 = false;
+			primerapasada = true;
+			continue;
+		}
+		else if (rematch == true && singleplayer == true)
+		{
+			rematch == false;
+			F1 = ' ';
+			F2 = ' ';
+			F3 = ' ';
+			F4 = ' ';
+			F5 = ' ';
+			F6 = ' ';
+			F7 = ' ';
+			F8 = ' ';
+			F9 = ' ';
+			i = 0;
+			seleccion = true;
+			jugador1 = true;
+			IA = false;
+			primerapasada = true;
+			continue;
+		}
+		else
+		{
+			win == true;
+		}
 		reset = false;
 		resetU = false;
 
 	} while (win == false);
-
+	rand();
 	return 0;
 
 }
