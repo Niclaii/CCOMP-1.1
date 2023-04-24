@@ -1,4 +1,4 @@
-// Hello World program 
+// Hello World program v
 // ANSI Codes
 // https://gist.github.com/fnky/458719343aabd01cfF47a3F4f7296797
 
@@ -25,13 +25,13 @@ void ponerFicha(int& Ubi, char& FX, char X, char O,char figura, int& cont, bool&
 			ResetU = true;
 		}
 	}
-	else 
+	else if (jugador == false && IA == true)
 	{
-		cout << "Turno de la CPU " << endl;
-		Ubi = rand() % 9 + 1;
+
 		if (FX != X && FX != O)
 		{
 			FX = figura;
+    
 		}
 		else
 		{
@@ -278,19 +278,26 @@ int main()
 		}
 		while (resetU == false)
 		{
-			cout << "introduzca la ubicacion: ";
-			cin >> ubi;
-
-			if (ubi >= 1 && ubi <= 9)
-			{
-				break;
-			}
-			else
-			{
-				cout << "Reingrese un numero entre el 1 al 9." << endl;
-				cout << "\n";
-			}
-		}
+      if (IA == true)
+      {
+        break;
+      }
+      else
+      {
+			
+        cout << "introduzca la ubicacion: ";
+        cin >> ubi;
+      	if (ubi >= 1 && ubi <= 9)
+			  {
+				  break;
+			  }
+			  else
+			  {
+				  cout << "Reingrese un numero entre el 1 al 9." << endl;
+				  cout << "\n";
+			  }
+		  }
+    }
 		//JUGADOR 1
 		if (jugador1)
 		{
@@ -379,8 +386,10 @@ int main()
 		//IA
 		if (singleplayer == true)
 		{
-			if (IA)
+			if (IA == true)
 			{
+         ubi = rand() % 9 + 1;
+		
 				switch (ubi) {
 				case 1:
 					ponerFicha(ubi, F1, x, o, o, i, reset, resetU, jugador1, IA);
