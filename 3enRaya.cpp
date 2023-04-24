@@ -125,16 +125,26 @@ void verificarGanador(char FX1,char FX2,char FX3,char X,char O,int& alternativa,
 	return;
 }
 
-void asignar_valores(char &x,char &o,bool& seleccion)
+void asignar_valores(char &x,char &o,bool& seleccion, bool singleplayer,bool multijugador)
 {
-	cout << "Ingrese la letra que quiere usar el Jugador 1:" << x;
+	cout << "Ingrese la letra que quiere usar el Jugador 1:";
 	cin >> x;
-	cout << "Ingrese la letra que quiere usar para la IA" << o;
+  if (multijugador==true)
+  {
+	cout << "Ingrese la letra que quiere usar el Jugador 2: ";
 	cin >> o;
 	cout << "\n";
+  }
+  else if(singleplayer==true)
+    {
+      cout << "Ingrese la letra para la IA: ";
+      cin>> o;
+    }
 	seleccion = true;
+  
 }
 
+ 
 int main()
 {
 	std::system("cls");
@@ -194,7 +204,8 @@ int main()
 
 			if (alternativa == 1)
 			{
-				asignar_valores(x, o,seleccion);
+        multijugador=true;
+				asignar_valores(x, o,seleccion,singleplayer,multijugador);
 				break;
 			}
 			else if (alternativa == 2)
@@ -206,7 +217,7 @@ int main()
 				if (alternativa2 == 1)
 				{
 					singleplayer = true;
-					asignar_valores(x, o, seleccion);
+					asignar_valores(x, o, seleccion,singleplayer,multijugador);
 					break;
 				}
 				if (alternativa2 == 2)
