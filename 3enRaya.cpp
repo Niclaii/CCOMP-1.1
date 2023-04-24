@@ -125,7 +125,7 @@ void verificarGanador(char FX1,char FX2,char FX3,char X,char O,int& alternativa,
 	return;
 }
 
-void asignar_valores(char x,char o,bool& seleccion)
+void asignar_valores(char &x,char &o,bool& seleccion)
 {
 	cout << "Ingrese la letra que quiere usar el Jugador 1:" << x;
 	cin >> x;
