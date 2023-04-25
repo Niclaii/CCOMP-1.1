@@ -7,8 +7,29 @@
 
 using namespace std;
 
+void Verificarjuego(int alternativa3, bool rematch, int alternativa,bool win)
+{
+	cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
+	cin >> alternativa3;
+	if (alternativa3 == 1)
+	{
+		rematch = true;
+	}
+	else if (alternativa3 == 2)
+	{
+		rematch = false;
+	}
+	else
+	{
+		cout << "\n";
+		cout << "Ingrese un numero valido por favor." << endl;
+		cout << "\n";
+		alternativa = 0;
+	}
+	return;
+}
 
-void ponerFicha(int& Ubi, char& FX, char X, char O,char figura, int& cont, bool& Reset, bool& ResetU, bool& jugador, bool& IA)
+void ponerFicha(int& Ubi, char& FX, char X, char O, char figura, int& cont, bool& Reset, bool& ResetU, bool& jugador, bool& IA)
 {
 	if (jugador == true && IA == false)
 	{
@@ -31,7 +52,6 @@ void ponerFicha(int& Ubi, char& FX, char X, char O,char figura, int& cont, bool&
 		if (FX != X && FX != O)
 		{
 			FX = figura;
-    
 		}
 		else
 		{
@@ -42,109 +62,75 @@ void ponerFicha(int& Ubi, char& FX, char X, char O,char figura, int& cont, bool&
 			ResetU = true;
 		}
 	}
+	else
+	{
+		cout << "Ocurrio un error" << endl;
+	}
 	return;
 }
 
-void verificarGanador(char FX1,char FX2,char FX3,char X,char O,int& alternativa,int& alternativa3, bool& rematch,bool IA,char F1, char F2, char F3, char F4, char F5, char F6, char F7, char F8, char F9)
+void verificarGanador(char FX1, char FX2, char FX3, char X, char O, int& alternativa, int& alternativa3, bool& rematch, bool singleplayer, char F1, char F2, char F3, char F4, char F5, char F6, char F7, char F8, char F9,bool multijugador,bool win)
 {
 	if (FX1 == X && FX2 == X && FX3 == X)
 	{
 		cout << "Jugador 1 Gana!" << endl;
 		cout << "\n";
-		cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
-		cin >> alternativa3;
-		if (alternativa3 == 1)
-		{
-			rematch = true;
-		}
-		else if (alternativa3 == 2)
-		{
-		}
-		else
-		{
-			cout << "\n";
-			cout << "Ingrese un numero valido por favor." << endl;
-			cout << "\n";
-			alternativa = 0;
-		}
+		Verificarjuego(alternativa3, rematch, alternativa,win);
 	}
 	else if (FX1 == O && FX2 == O && FX3 == O)
 	{
-		if (IA == true) 
+		if (singleplayer == true)
 		{
 			cout << " IA Gana!" << endl;
 			cout << "\n";
-			cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
-			cin >> alternativa3;
-			if (alternativa3 == 1)
-			{
-				rematch = true;
-			}
-			else if (alternativa3 == 2)
-			{
-			}
-			else
-			{
-				cout << "\n";
-				cout << "Ingrese un numero valido por favor." << endl;
-				cout << "\n";
-				alternativa = 0;
-			}
+			
+			Verificarjuego(alternativa3, rematch, alternativa,win);
 		}
-		else
+		else if (multijugador == true)
 		{
 			cout << "Jugador 2 Gana!" << endl;
 			cout << "\n";
-			cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
-			cin >> alternativa3;
-			if (alternativa3 == 1)
-			{
-				rematch = true;
-			}
-			else if (alternativa3 == 2)
-			{
-			}
-			else
-			{
-				cout << "\n";
-				cout << "Ingrese un numero valido por favor." << endl;
-				cout << "\n";
-				alternativa = 0;
-			}
+			Verificarjuego(alternativa3, rematch, alternativa,win);
+		}
+		else
+		{
+			cout << "Ocurrió un error" << endl;
 		}
 	}
-	else 
+	else
 	{
-		if ((F1 == (O || X) && F2 == (O || X) && F3 == (O || X) && F4 == (O || X) && F5 == (O || X) && F6 == (O || X) && F7 == (O || X) && F8 == (O || X) && F9 == (O || X)))
+		if ((F1 == (X || O)) && (F2 == (X || O)) && (F3 == (X || O)) && F4 == (X || O) && (F5 == (X || O)) && (F6 == (X || O)) && F7 == (X || O) && (F8 == (X || O)) && (F9 == (X || O)))
 		{
 			cout << "Nadie Gana"; std::cout << "\x1B[3;92m";
 			std::cout << "/***************************************************/" << std::endl;
 			std::cout << "\x1B[m";
+
 		}
 	}
 	return;
 }
 
-void asignar_valores(char &x,char &o,bool& seleccion, bool singleplayer,bool multijugador)
+void asignar_valores(char& x, char& o, bool& seleccion, bool singleplayer, bool multijugador)
 {
 	cout << "Ingrese la letra que quiere usar el Jugador 1:";
 	cin >> x;
-  if (multijugador==true)
-  {
-	cout << "Ingrese la letra que quiere usar el Jugador 2: ";
-	cin >> o;
-	cout << "\n";
-  }
-  else if(singleplayer==true)
-    {
-      cout << "Ingrese la letra para la IA: ";
-      cin>> o;
-    }
+	if (multijugador == true)
+	{
+		cout << "Ingrese la letra que quiere usar el Jugador 2:";
+		cin >> o;
+		cout << "\n";
+	}
+	else if (singleplayer == true)
+	{
+		cout << "Ingrese la letra para la IA:";
+		cin >> o;
+	}
 	seleccion = true;
-  
+
+	return;
 }
 
- 
+
 int main()
 {
 	std::system("cls");
@@ -204,8 +190,8 @@ int main()
 
 			if (alternativa == 1)
 			{
-        multijugador=true;
-				asignar_valores(x, o,seleccion,singleplayer,multijugador);
+				multijugador = true;
+				asignar_valores(x, o, seleccion, singleplayer, multijugador);
 				break;
 			}
 			else if (alternativa == 2)
@@ -217,7 +203,7 @@ int main()
 				if (alternativa2 == 1)
 				{
 					singleplayer = true;
-					asignar_valores(x, o, seleccion,singleplayer,multijugador);
+					asignar_valores(x, o, seleccion, singleplayer, multijugador);
 					break;
 				}
 				if (alternativa2 == 2)
@@ -249,13 +235,13 @@ int main()
 		}
 
 		//PRIMERA PASADA
-		if (primerapasada)
+		if (primerapasada==true)
 		{
 			cout << '7' << " | " << '8' << " | " << '9' << "\n" << '4' << " | " << '5' << " | " << '6' << "\n" << '1' << " | " << '2' << " | " << '3' << "\n";
 			primerapasada = false;
 		}
 		//TURNOS
-		if (jugador1)
+		if (jugador1==true)
 		{
 			cout << "Turno del Jugador 1\n";
 			cout << "\n";
@@ -278,32 +264,32 @@ int main()
 		}
 		while (resetU == false)
 		{
-      if (IA == true)
-      {
-        break;
-      }
-      else
-      {
-			
-        cout << "introduzca la ubicacion: ";
-        cin >> ubi;
-      	if (ubi >= 1 && ubi <= 9)
-			  {
-				  break;
-			  }
-			  else
-			  {
-				  cout << "Reingrese un numero entre el 1 al 9." << endl;
-				  cout << "\n";
-			  }
-		  }
-    }
+			if (IA == true)
+			{
+				break;
+			}
+			else
+			{
+
+				cout << "introduzca la ubicacion: ";
+				cin >> ubi;
+				if (ubi >= 1 && ubi <= 9)
+				{
+					break;
+				}
+				else
+				{
+					cout << "Reingrese un numero entre el 1 al 9." << endl;
+					cout << "\n";
+				}
+			}
+		}
 		//JUGADOR 1
-		if (jugador1)
+		if (jugador1==true)
 		{
 			if (ubi == 1)
 			{
-				ponerFicha(ubi,F1,x,o,x,i,reset,resetU,jugador1,IA);
+				ponerFicha(ubi, F1, x, o, x, i, reset, resetU, jugador1, IA);
 			}
 			else if (ubi == 2)
 			{
@@ -342,7 +328,7 @@ int main()
 		//JUGADOR 2
 		if (multijugador == true)
 		{
-			if (jugador2)
+			if (jugador2==true)
 			{
 				if (ubi == 1)
 				{
@@ -388,8 +374,8 @@ int main()
 		{
 			if (IA == true)
 			{
-         ubi = rand() % 9 + 1;
-		
+				ubi = rand() % 9 + 1;
+
 				switch (ubi) {
 				case 1:
 					ponerFicha(ubi, F1, x, o, o, i, reset, resetU, jugador1, IA);
@@ -435,59 +421,38 @@ int main()
 			jugador2 = tmp;
 			ubi = 0;
 		}
-		if (singleplayer == true)
+		if (singleplayer == true && reset == false)
 		{
-			if (reset == false)
-			{
-				tmp = jugador1;
-				jugador1 = IA;
-				IA = tmp;
-				ubi = 0;
-			}
+			tmp = jugador1;
+			jugador1 = IA;
+			IA = tmp;
+			ubi = 0;
 		}
-
 		if (multijugador == true)
 		{
-			verificarGanador(F1, F2, F3, x, o, alternativa, alternativa3, rematch, IA,F1,F2,F3,F4,F5,F6,F7,F8,F9);
-			verificarGanador(F1, F5, F9, x, o, alternativa, alternativa3, rematch, IA,F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F1, F4, F7, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F7, F8, F9, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F3, F6, F9, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
+			verificarGanador(F1, F2, F3, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9,multijugador,win);
+			verificarGanador(F1, F5, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F1, F4, F7, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F7, F8, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F3, F6, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F8, F5, F2, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F7, F5, F3, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
 		}
 		if (singleplayer == true)
 		{
-			verificarGanador(F1, F2, F3, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F1, F5, F9, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F1, F4, F7, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F7, F8, F9, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F3, F6, F9, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
-			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, IA, F1, F2, F3, F4, F5, F6, F7, F8, F9);
+			verificarGanador(F1, F2, F3, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F1, F5, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F1, F4, F7, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F7, F8, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F3, F6, F9, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F4, F5, F6, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F8, F5, F2, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
+			verificarGanador(F7, F5, F3, x, o, alternativa, alternativa3, rematch, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, multijugador, win);
 		}
 		if (rematch == true && multijugador == true)
 		{
-			rematch == false;
-			F1 = ' ';
-			F2 = ' ';
-			F3 = ' ';
-			F4 = ' ';
-			F5 = ' ';
-			F6 = ' ';
-			F7 = ' ';
-			F8 = ' ';
-			F9 = ' ';
-			i = 0;
-			seleccion = true;
-			jugador1 = true;
-			jugador2 = false;
-			primerapasada = true;
-			continue;
-		}
-		else if (rematch == true && singleplayer == true)
-		{
-			rematch == false;
+			rematch = false;
 			F1 = ' ';
 			F2 = ' ';
 			F3 = ' ';
@@ -502,7 +467,30 @@ int main()
 			jugador1 = true;
 			IA = false;
 			primerapasada = true;
-			continue;
+			reset = false;
+			resetU = false;
+			alternativa3 = 0;
+		}
+		else if (rematch == true && singleplayer == true)
+		{
+			rematch = false;
+			F1 = ' ';
+			F2 = ' ';
+			F3 = ' ';
+			F4 = ' ';
+			F5 = ' ';
+			F6 = ' ';
+			F7 = ' ';
+			F8 = ' ';
+			F9 = ' ';
+			i = 0;
+			seleccion = true;
+			jugador1 = true;
+			IA = false;
+			primerapasada = true;
+			reset = false;
+			resetU = false;
+			alternativa3 = 0;
 		}
 		else
 		{
@@ -511,8 +499,8 @@ int main()
 		reset = false;
 		resetU = false;
 
-	} while (win == false);
+	} while (win == false || i<9);
 	rand();
 	return 0;
-	
 }
+
