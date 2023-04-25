@@ -18,7 +18,6 @@ void Verificarjuego(int& alternativa3, bool& rematch, int alternativa,bool win)
 	else if (alternativa3 == 2)
 	{
 		rematch = false;
-		win = true;
 	}
 	else
 	{
@@ -466,7 +465,7 @@ int main()
 			i = 0;
 			seleccion = true;
 			jugador1 = true;
-			IA = false;
+			jugador2 = false;
 			primerapasada = true;
 			reset = false;
 			resetU = false;
