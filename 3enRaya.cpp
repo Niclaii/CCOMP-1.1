@@ -8,7 +8,7 @@
 using namespace std;
 
 
-void Verificarjuego(int& alternativa3, bool& rematch, int alternativa)
+void Verificarjuego(int& alternativa3, bool& rematch, int alternativa, bool& win)
 {
 	cout << "Desea jugar de nuevo?\n1.Si\n2.No" << endl;
 	cin >> alternativa3;
@@ -76,7 +76,7 @@ void verificarGanador(char FX1, char FX2, char FX3, char X, char O, int& alterna
 	{
 		cout << "Jugador 1 Gana!" << endl;
 		cout << "\n";
-		Verificarjuego(alternativa3, rematch, alternativa);
+		Verificarjuego(alternativa3, rematch, alternativa, win);
 	}
 	else if (FX1 == O && FX2 == O && FX3 == O)
 	{
@@ -85,13 +85,13 @@ void verificarGanador(char FX1, char FX2, char FX3, char X, char O, int& alterna
 			cout << " IA Gana!" << endl;
 			cout << "\n";
 
-			Verificarjuego(alternativa3, rematch, alternativa);
+			Verificarjuego(alternativa3, rematch, alternativa, win);
 		}
 		else if (multijugador == true)
 		{
 			cout << "Jugador 2 Gana!" << endl;
 			cout << "\n";
-			Verificarjuego(alternativa3, rematch, alternativa);
+			Verificarjuego(alternativa3, rematch, alternativa, win);
 		}
 	}
 	else
@@ -100,7 +100,7 @@ void verificarGanador(char FX1, char FX2, char FX3, char X, char O, int& alterna
 	return;
 }
 
-void asignar_valores(char& x, char& o, bool& seleccion, bool singleplayer, bool multijugador, int alternativa4, bool& IAF, bool& IAM, bool& IAD)
+void asignar_valores(char& x, char& o, bool& seleccion, bool singleplayer, bool multijugador, int alternativa4, bool IAF, bool IAM, bool IAD)
 {
 	cout << "Ingrese la letra que quiere usar el Jugador 1:";
 	cin >> x;
@@ -637,7 +637,7 @@ int main()
 
 		if (i == 9)
 		{
-			Verificarjuego(alternativa3, rematch, alternativa);
+			Verificarjuego(alternativa3, rematch, alternativa, win);
 			if (alternativa3 == 2)
 			{
 				break;
