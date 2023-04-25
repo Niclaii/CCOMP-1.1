@@ -638,7 +638,11 @@ int main()
 		if (i == 9)
 		{
 			Verificarjuego(alternativa3, rematch, alternativa, win);
-			if (alternativa3 == 2)
+			if (alternativa3==1)
+			{
+				jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU, win);
+			}
+			else if (alternativa3 == 2)
 			{
 				break;
 			}
