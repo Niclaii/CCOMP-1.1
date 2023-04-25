@@ -162,7 +162,7 @@ void Turnos(bool multijugador, bool reset, bool singleplayer, bool& tmp, bool& j
 	}
 }
 
-void jugarO(bool& rematch, bool multijugador, bool singleplayer, char& F1, char& F2, char& F3, char& F4, char& F5, char& F6, char& F7, char& F8, char& F9, int& i, bool& seleccion, bool &jugador1, bool &jugador2, bool &IA, bool& primerapasada, bool& reset, bool& resetU,bool& win)
+void jugarO(bool& rematch, bool multijugador, bool singleplayer, char& F1, char& F2, char& F3, char& F4, char& F5, char& F6, char& F7, char& F8, char& F9, int& i, bool& seleccion, bool &jugador1, bool &jugador2, bool &IA, bool& primerapasada, bool& reset, bool& resetU,bool& win,int& alternativa3)
 {
 	if (rematch == true && multijugador == true)
 	{
@@ -183,6 +183,7 @@ void jugarO(bool& rematch, bool multijugador, bool singleplayer, char& F1, char&
 		primerapasada = true;
 		reset = false;
 		resetU = false;
+		alternativa3 = 0;
 	}
 	else if (rematch == true && singleplayer == true)
 	{
@@ -617,15 +618,15 @@ int main()
 		}
 		if (alternativa4 == 1)
 		{
-			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAF, primerapasada, reset, resetU, win);
+			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAF, primerapasada, reset, resetU, win,alternativa3);
 		}
 		else if (alternativa4 == 2)
 		{
-			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU,win);
+			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU,win, alternativa3);
 		}
 		else if (multijugador == true)
 		{
-			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU, win);
+			jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU, win, alternativa3);
 		}
 		reset = false;
 		resetU = false;
@@ -640,7 +641,7 @@ int main()
 			Verificarjuego(alternativa3, rematch, alternativa, win);
 			if (alternativa3==1)
 			{
-				jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU, win);
+				jugarO(rematch, multijugador, singleplayer, F1, F2, F3, F4, F5, F6, F7, F8, F9, i, seleccion, jugador1, jugador2, IAM, primerapasada, reset, resetU, win, alternativa3);
 			}
 			else if (alternativa3 == 2)
 			{
