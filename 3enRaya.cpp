@@ -208,47 +208,55 @@ void jugarO(bool& rematch, bool multijugador, bool singleplayer, char& F1, char&
 	return;
 }
 
-void FichaIAM(char FX1, char FX2, char& FX3, char x, char o) // NO SE XQ AHORA SOLO CUENTA UN TURNO
+void FichaIAM(char& FX1, char& FX2, char& FX3, char x, char o)
 {
-
-	if ((FX1 == FX2) && (FX1 != o))
+	if ((FX1 == FX2) && (FX1 != o) && (FX3 != x) && (FX3 != o))
 	{
-	
-		if ((FX3 != x) && (FX3 != o))
-		{
-			FX3 = o;
-		}
+		FX3 = o;
+	}
+	else if ((FX1 != x) && (FX1 != o) && (FX1 != ' '))
+	{
+		FX1 = o;
+	}
+	else if ((FX2 != x) && (FX2 != o) && (FX2 != ' '))
+	{
+		FX2 = o;
+	}
+	else if ((FX3 != x) && (FX3 != o) && (FX3 != ' '))
+	{
+		FX3 = o;
+	}
+}
+
+void FichaIAD(char& FX1, char& FX2, char& FX3, char& FY1, char& FY2, char& FY3, char& FZ1, char& FZ2, char& FZ3, char x, char o)
+{
+	// Comprueba si hay dos 'x' en diagonal y coloca 'o' para bloquear
+	if (FX1 == x && FY2 == x && FZ3 != o && FZ3 != x)
+	{
+		FZ3 = o;
+	}
+	else if (FX3 == x && FY2 == x && FZ1 != o && FZ1 != x)
+	{
+		FZ1 = o;
+	}
+	else if (FZ1 == x && FY2 == x && FX3 != o && FX3 != x)
+	{
+		FX3 = o;
+	}
+	else if (FZ3 == x && FY2 == x && FX1 != o && FX1 != x)
+	{
+		FX1 = o;
 	}
 	else
 	{
-		if ((FX3 != x) && (FX3 != o))
-		{
-			FX3 = o;
-		}
-		else if ((FX1 == x && FX2 == x) || (FX1 == x && FX3 == x) || (FX2 == x && FX3 == x))
-		{
-			if ((FX1 != o) && (FX2 != o) && (FX3 != o))
-			{
-				if (FX1 != x && FX2 != x && FX3 != x)
-				{
-					if (FX1 != ' ')
-					{
-						FX2 = o;
-					}
-					else if (FX2 != ' ')
-					{
-						FX1 = o;
-					}
-					else if (FX3 != ' ')
-					{
-						FX1 = o;
-					}
-				}
-			}
-		}
+		// Si no se bloqueó ninguna diagonal, utiliza la lógica FichaIAM
+		FichaIAM(FX1, FX2, FX3, x, o);
 	}
-	return;
 }
+
+
+
+
 
 int main()
 {
@@ -315,7 +323,7 @@ int main()
 			}
 			else if (alternativa == 2)
 			{
-				cout << "En que dificultad desea jugar?\n1.Facil\n2.Medio\n3.Dificil(Pronto)\n" << endl;
+				cout << "En que dificultad desea jugar?\n1.Facil\n2.Medio\n3.Dificil\n" << endl;
 				cin >> alternativa2;
 				alternativa4 = alternativa2;
 				cout << "\n";
@@ -336,9 +344,9 @@ int main()
 				if (alternativa2 == 3)//dificil
 				{
 					singleplayer = true;
-					cout << "no disponible temporalmente. Por favor ingrese otra opcion.\n" << endl;
-					//asignar_valores(x, o, seleccion,singleplayer,multijugador, alternativa4, IAF, IAM, IAD);
-					//break;
+					//cout << "no disponible temporalmente. Por favor ingrese otra opcion.\n" << endl;
+					asignar_valores(x, o, seleccion,singleplayer,multijugador, alternativa4, IAF, IAM, IAD);
+					break;
 				}
 				else
 				{
@@ -601,6 +609,55 @@ int main()
 				}
 			}
 		}
+		char r = ' ';
+		if (singleplayer == true)
+		{
+			if (IAD == true)
+			{
+				if (JIA == true)
+				{
+					ubi = rand() % 9 + 1;
+					JIA = false;
+				}
+				if (ubi == 1)
+				{
+					FichaIAD(F2, F3, F1, F4, F7, F1, F5, F9, F1, x, o);
+				}
+				else if (ubi == 2)
+				{
+					FichaIAD(F3, F1, F2, F8, F5, F2, r, r, r, x, o);
+				}
+				else if (ubi == 3)
+				{
+					FichaIAD(F1, F2, F3, F7, F5, F3, F6, F9, F3, x, o);
+				}
+				else if (ubi == 4)
+				{
+					FichaIAD(F7, F1, F4, F5, F6, F4, r, r, r, x, o);
+				}
+				else if (ubi == 5)
+				{
+					FichaIAD(F9, F1, F5, F6, F4, F5, F2, F8, F5, F3, F7);
+				}
+				else if (ubi == 6)
+				{
+					FichaIAD(F9, F3, F6, F4, F5, F6, r, r, r, x, o);
+				}
+				else if (ubi == 7)
+				{
+					FichaIAD(F1, F4, F7, F8, F9, F7, F5, F3, F7, x, o);
+				}
+				else if (ubi == 8)
+				{
+					FichaIAD(F9, F7, F8, F5, F2, F8, r, r, r, x, o);
+				}
+				else if (ubi == 9)
+				{
+					FichaIAD(F1, F5, F9, F7, F8, F9, F3, F6, F9, x, o);
+				}
+			}
+		}
+
 		cout << F7 << " | " << F8 << " | " << F9 << "\n" << F4 << " | " << F5 << " | " << F6 << "\n" << F1 << " | " << F2 << " | " << F3 << "\n";
 
 		i++;
