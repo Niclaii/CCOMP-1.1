@@ -140,8 +140,7 @@ int main()
 						else
 						{
 							Tablero[i][j] = '_';
-
-					}
+						}
 				}
 			}
 		}
