@@ -132,10 +132,12 @@ int main()
 						if (Tablero[i][j] == 'S' || Tablero[i][j] == 's')
 						{
 							cout << "ingrese otra posicion" << endl;
+						i--;
 						}
 						else if (Tablero[i][j] == 'O' || Tablero[i][j] == 'o')
 						{
 							cout << "ingrese otra posicion" << endl;
+							i--;
 						}
 						else
 						{
