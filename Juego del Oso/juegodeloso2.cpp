@@ -128,7 +128,6 @@ int main()
 			{
 				if (i < 6 && j < 6)
 				{
-					{
 						Tablero[fila][columna] = figura;
 						if (Tablero[i][j] == 'S' || Tablero[i][j] == 's')
 						{
@@ -142,7 +141,6 @@ int main()
 						{
 							Tablero[i][j] = '_';
 
-						}
 					}
 				}
 			}
