@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib> // para rand()
+#include <ctime> // para time()
 //#include "MyLib.cpp"
 
 using namespace std;
@@ -21,7 +23,7 @@ void Turnos(bool multijugador, bool singleplayer, bool& tmp, bool& jugador1, boo
 		{
 			tmp = jugador1;
 			jugador1 = IAF;
-			IAF = tmp;
+			jugador2 = tmp;
 			fila = 0;
 			columna = 0;
 			i++;
@@ -30,7 +32,7 @@ void Turnos(bool multijugador, bool singleplayer, bool& tmp, bool& jugador1, boo
 		{
 			tmp = jugador1;
 			jugador1 = IAM;
-			IAM = tmp;
+			jugador2 = tmp;
 			fila = 0;
 			columna = 0;
 			i++;
@@ -47,41 +49,41 @@ void Turnos(bool multijugador, bool singleplayer, bool& tmp, bool& jugador1, boo
 	}
 }
 
-void JugarDNuevo(char replay,bool &Win,char Tablero[5][5],bool jugador1,bool jugador2,bool tmp,bool V11,bool V12,bool V13,bool V14, bool V15, bool V21, bool V22, bool V23
-	,bool V24, bool V25, bool V31, bool V32, bool V33, bool V34, bool V35, bool V41, bool V42, bool V43, bool V44, bool V45, bool V51,bool V52, bool V53, bool V54, bool V55, bool FG1, bool FG2, bool FG3
-	,bool FG4, bool FG5, bool FG6, bool FG7, bool FG8,bool FG9, bool FG10, bool FG11, bool FG12
-	,bool FG13, bool FG14, bool FG15, bool FG16, bool FG17, bool FG18, bool FG19, bool FG20, bool FG21, bool FG22, bool FG23, bool FG24, bool FG25, bool FG26, bool FG27, bool FG28, bool FG29
-	,bool FG30, bool FG31, bool FG32, bool FG33, bool FG34, bool FG35, bool FG36, bool FG37, bool FG38, bool FG39, bool FG40, bool FG41, bool FG42, bool FG43, bool FG44, bool FG45
-	,bool FG46, bool FG47, bool FG48,int i, int fila,int columna,int PJugador1, int PJugador2)
+void JugarDNuevo(char replay, bool& Win, char Tablero[5][5], bool jugador1, bool jugador2, bool tmp, bool V11, bool V12, bool V13, bool V14, bool V15, bool V21, bool V22, bool V23
+	, bool V24, bool V25, bool V31, bool V32, bool V33, bool V34, bool V35, bool V41, bool V42, bool V43, bool V44, bool V45, bool V51, bool V52, bool V53, bool V54, bool V55, bool FG1, bool FG2, bool FG3
+	, bool FG4, bool FG5, bool FG6, bool FG7, bool FG8, bool FG9, bool FG10, bool FG11, bool FG12
+	, bool FG13, bool FG14, bool FG15, bool FG16, bool FG17, bool FG18, bool FG19, bool FG20, bool FG21, bool FG22, bool FG23, bool FG24, bool FG25, bool FG26, bool FG27, bool FG28, bool FG29
+	, bool FG30, bool FG31, bool FG32, bool FG33, bool FG34, bool FG35, bool FG36, bool FG37, bool FG38, bool FG39, bool FG40, bool FG41, bool FG42, bool FG43, bool FG44, bool FG45
+	, bool FG46, bool FG47, bool FG48, int i, int fila, int columna, int PJugador1, int PJugador2)
 {
-		cout << "A B C D E" << endl;
-		for (int i{ 1 }; i < 6; i++)
-		{
-			cout << "\033[32m- - - - - " << i << "\033[0m" << endl;
+	cout << "A B C D E" << endl;
+	for (int i{ 1 }; i < 6; i++)
+	{
+		cout << "\033[32m- - - - - " << i << "\033[0m" << endl;
 
-		}
-		
-		for (int i{ 1 }; i < 6; i++)
+	}
+
+	for (int i{ 1 }; i < 6; i++)
+	{
+		for (int j{ 1 }; j < 6; j++)
 		{
-			for (int j{ 1 }; j < 6; j++)
-			{
-				Tablero[i][j] = '_';
-			}
+			Tablero[i][j] = '_';
 		}
-		
-		jugador1 = true; jugador2 = false; tmp = false; V11 = false; V12 = false; V13 = false; V14 = false; V15 = false; V21 = false; V22 = false; V23 = false;V24 = false; V25 = false;
-		V31 = false; V32 = false; V33 = false; V34 = false; V35 = false; V41 = false; V42 = false; V43 = false; V44 = false; V45 = false; V51 = false;
-		V52 = false; V53 = false; V54 = false; V55 = false; FG1 = true; FG2 = true; FG3 = true; FG4 = true; FG5 = true; FG6 = true; FG7 = true; FG8 = true; FG9 = true; FG10 = true; FG11 = true; FG12 = true;
-		FG13 = true; FG14 = true; FG15 = true; FG16 = true; FG17 = true; FG18 = true; FG19 = true; FG20 = true; FG21 = true; FG22 = true; FG23 = true; FG24 = true; FG25 = true; FG26 = true; FG27 = true; FG28 = true; FG29 = true;
-		FG30 = true; FG31 = true; FG32 = true; FG33 = true; FG34 = true; FG35 = true; FG36 = true; FG37 = true; FG38 = true; FG39 = true; FG40 = true; FG41 = true; FG42 = true; FG43 = true; FG44 = true; FG45 = true;
-		FG46 = true; FG47 = true; FG48 = true; i = 0; fila = 1; columna = 1; PJugador1 = 0; PJugador2 = 0;	
+	}
+
+	jugador1 = true; jugador2 = false; tmp = false; V11 = false; V12 = false; V13 = false; V14 = false; V15 = false; V21 = false; V22 = false; V23 = false; V24 = false; V25 = false;
+	V31 = false; V32 = false; V33 = false; V34 = false; V35 = false; V41 = false; V42 = false; V43 = false; V44 = false; V45 = false; V51 = false;
+	V52 = false; V53 = false; V54 = false; V55 = false; FG1 = true; FG2 = true; FG3 = true; FG4 = true; FG5 = true; FG6 = true; FG7 = true; FG8 = true; FG9 = true; FG10 = true; FG11 = true; FG12 = true;
+	FG13 = true; FG14 = true; FG15 = true; FG16 = true; FG17 = true; FG18 = true; FG19 = true; FG20 = true; FG21 = true; FG22 = true; FG23 = true; FG24 = true; FG25 = true; FG26 = true; FG27 = true; FG28 = true; FG29 = true;
+	FG30 = true; FG31 = true; FG32 = true; FG33 = true; FG34 = true; FG35 = true; FG36 = true; FG37 = true; FG38 = true; FG39 = true; FG40 = true; FG41 = true; FG42 = true; FG43 = true; FG44 = true; FG45 = true;
+	FG46 = true; FG47 = true; FG48 = true; i = 0; fila = 1; columna = 1; PJugador1 = 0; PJugador2 = 0;
 }
 
 
-void verificadorcasilla(bool &V11, bool &V12, bool &V13, bool &V14, bool &V15,
-	bool &V21, bool &V22, bool &V23, bool &V24, bool &V25, bool &V31, bool &V32, bool  &V33, bool &V34, bool &V35, bool &V41, bool &V42,
-	bool &V43, bool &V44, bool &V45, bool &V51, bool &V52, bool &V53, bool &V54, bool &V55,int fila,int columna,int &CV11, int &CV12, int &CV13, int &CV14, int &CV15, int &CV21, int &CV22, int &CV23, int &CV24, int &CV25, int &CV31, int &CV32
-	, int &CV33, int &CV34, int &CV35, int &CV41, int &CV42, int &CV43, int &CV44, int &CV45, int &CV51, int &CV52, int &CV53, int &CV54, int &CV55,char fig)
+void verificadorcasilla(bool& V11, bool& V12, bool& V13, bool& V14, bool& V15,
+	bool& V21, bool& V22, bool& V23, bool& V24, bool& V25, bool& V31, bool& V32, bool& V33, bool& V34, bool& V35, bool& V41, bool& V42,
+	bool& V43, bool& V44, bool& V45, bool& V51, bool& V52, bool& V53, bool& V54, bool& V55, int fila, int columna, int& CV11, int& CV12, int& CV13, int& CV14, int& CV15, int& CV21, int& CV22, int& CV23, int& CV24, int& CV25, int& CV31, int& CV32
+	, int& CV33, int& CV34, int& CV35, int& CV41, int& CV42, int& CV43, int& CV44, int& CV45, int& CV51, int& CV52, int& CV53, int& CV54, int& CV55, char fig)
 {
 	if (fila == 1 && columna == 1)
 	{
@@ -90,7 +92,7 @@ void verificadorcasilla(bool &V11, bool &V12, bool &V13, bool &V14, bool &V15,
 		{
 			CV11 = 1;
 		}
-		else if (fig == 'S'|| fig == 's')
+		else if (fig == 'S' || fig == 's')
 		{
 			CV11 = 2;
 		}
@@ -442,7 +444,7 @@ void ingresarfigura(char& figura)
 	}
 }
 
-void ingresarvalores(int& fila, int& columna, char& figura, bool jugador1, bool jugador2,char Tablero[5][5])
+void ingresarvalores(int& fila, int& columna, char& figura, bool jugador1, bool jugador2, char Tablero[5][5])
 {
 	if (jugador1 == true)
 	{
@@ -479,7 +481,7 @@ void ingresarvalores(int& fila, int& columna, char& figura, bool jugador1, bool 
 	cout << "\n";
 }
 
-void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bool jugador1, bool jugador2, bool& FG,int CV1,int CV2,int CV3)
+void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bool jugador1, bool jugador2, bool& FG, int CV1, int CV2, int CV3)
 {
 	if (FG == true)
 	{
@@ -507,7 +509,7 @@ int main()
 	char Tablero[5][5], figura{ ' ' }, replay{};
 
 	int fila{ 1 }, columna{ 1 }, PJugador1{ 0 }, PJugador2{ 0 }, CV11{ 0 }, CV12{ 0 }, CV13{ 0 }, CV14{ 0 }, CV15{ 0 }, CV21{ 0 }, CV22{ 0 }, CV23{ 0 }, CV24{ 0 }, CV25{ 0 }, CV31{ 0 }, CV32{ 0 }, CV33{ 0 }, CV34{ 0 }
-	, CV35{ 0 }, CV41{ 0 }, CV42{ 0 }, CV43{ 0 }, CV44{ 0 }, CV45{ 0 }, CV51{ 0 }, CV52{ 0 }, CV53{ 0 }, CV54{ 0 }, CV55{ 0 }, alternativa{ 0 }, alternativa2{ 0 }, i{0};
+	, CV35{ 0 }, CV41{ 0 }, CV42{ 0 }, CV43{ 0 }, CV44{ 0 }, CV45{ 0 }, CV51{ 0 }, CV52{ 0 }, CV53{ 0 }, CV54{ 0 }, CV55{ 0 }, alternativa{ 0 }, alternativa2{ 0 }, i{ 0 };
 
 	bool primerapasada{ true }, jugador1{ true }, jugador2{ false }, tmp(false), V11{ false }, V12{ false }, V13{ false }, V14{ false }, V15{ false }, V21{ false }, V22{ false }, V23{ false }
 		, V24{ false }, V25{ false }, V31{ false }, V32{ false }, V33{ false }, V34{ false }, V35{ false }, V41{ false }, V42{ false }, V43{ false }, V44{ false }, V45{ false }, V51{ false }
@@ -523,19 +525,19 @@ int main()
 	std::cout << "\x1B[3;92m";         // Mostrar el siguiente texto en modo de letra italico "[3;" y color azul "[ ;34m"
 	std::cout << "/***************************************************/" << std::endl;
 	std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "#//"; std::cout << "\x1B[3;34m"; std::cout << "%%%%%%##((//##" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "*,/"; std::cout << "\x1B[3;34m"; std::cout << "%%%%##((//((%%" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "..%"; std::cout << "\x1B[3;34m"; std::cout << "%##((//((##%&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "  ((/"; std::cout << "\x1B[3;34m"; std::cout << ";/((##%%&&";	std::cout << "\x1B[m"; std::cout << "   Universidad Catolica San Pablo" << std::endl;
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "      #"; std::cout << "\x1B[3;34m"; std::cout << "   //((####&&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "  ###*  #"; std::cout << "\x1B[3;34m"; std::cout << "         &&";	std::cout << "\x1B[m"; std::cout << "		CCOMP 2 - 1 // 2023" << std::endl;
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "  #(((#  % "; std::cout << "\x1B[3;34m"; std::cout << "       &&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&%%%%%%#("; std::cout << "\x1B[m"; std::cout << "  ((###  #"; std::cout << "\x1B[3;34m"; std::cout << "  .%%%%%&&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&#%%%###/"; std::cout << "\x1B[m"; std::cout << "  ###%%  %"; std::cout << "\x1B[3;34m"; std::cout << "  %%%%%%&&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "&&%###((/"; std::cout << "\x1B[m"; std::cout << "  #%%...%../"; std::cout << "\x1B[3;34m"; std::cout << "%%%%%%& " << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << " %%#(((#(,,"; std::cout << "\x1B[m"; std::cout << ",,"; std::cout << "\x1B[3;34m"; std::cout << "*%%***%%%%%%%&, " << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "  (######//"; std::cout << "\x1B[m"; std::cout << "//"; std::cout << "\x1B[3;34m"; std::cout << "///%%%%%%%%&&" << std::endl; std::cout << "\x1B[m";
-	std::cout << "\x1B[3;31m"; std::cout << "     %%&#//%%%%%%%%%%&&%" << std::endl;
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "#//"; std::cout << "\x1B[3;34m"; std::cout << "%%%%%%##((//##" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "*,/"; std::cout << "\x1B[3;34m"; std::cout << "%%%%##((//((%%" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "..%"; std::cout << "\x1B[3;34m"; std::cout << "%##((//((##%&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%%%%%%%"; std::cout << "\x1B[m"; std::cout << "  ((/"; std::cout << "\x1B[3;34m"; std::cout << ";/((##%%&&";	std::cout << "\x1B[m"; std::cout << "   Universidad Catolica San Pablo" << std::endl;
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "      #"; std::cout << "\x1B[3;34m"; std::cout << "   //((####&&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "  ###*  #"; std::cout << "\x1B[3;34m"; std::cout << "         &&";	std::cout << "\x1B[m"; std::cout << "		CCOMP 2 - 1 // 2023" << std::endl;
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%%("; std::cout << "\x1B[m"; std::cout << "  #(((#  % "; std::cout << "\x1B[3;34m"; std::cout << "       &&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&%%%%%%#("; std::cout << "\x1B[m"; std::cout << "  ((###  #"; std::cout << "\x1B[3;34m"; std::cout << "  .%%%%%&&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&#%%%###/"; std::cout << "\x1B[m"; std::cout << "  ###%%  %"; std::cout << "\x1B[3;34m"; std::cout << "  %%%%%%&&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".&&%###((/"; std::cout << "\x1B[m"; std::cout << "  #%%...%../"; std::cout << "\x1B[3;34m"; std::cout << "%%%%%%& " << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ". %%#(((#(,,"; std::cout << "\x1B[m"; std::cout << ",,"; std::cout << "\x1B[3;34m"; std::cout << "*%%***%%%%%%%&, " << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".  (######//"; std::cout << "\x1B[m"; std::cout << "//"; std::cout << "\x1B[3;34m"; std::cout << "///%%%%%%%%&&" << std::endl; std::cout << "\x1B[m";
+	std::cout << "\x1B[3;31m"; std::cout << ".     %%&#//%%%%%%%%%%&&%" << std::endl;
 	std::cout << ".         &&&&&&&&&&/" << std::endl;
 	std::cout << "\x1B[m";             // Resetear color a valor por defecto
 	std::cout << "\x1B[3;92m";
@@ -618,9 +620,9 @@ int main()
 			}
 			primerapasada = false;
 		}
-		
+
 		//Turno de los Jugadores
-			
+
 		if (jugador1 == true)
 		{
 			ingresarvalores(fila, columna, figura, jugador1, jugador2, Tablero);
@@ -628,14 +630,35 @@ int main()
 				CV11, CV12, CV13, CV14, CV15, CV21, CV22, CV23, CV24, CV25, CV31, CV32, CV33, CV34, CV35, CV41, CV42, CV43, CV44, CV45, CV51, CV52, CV53, CV54, CV55, figura);
 		}
 
+
+
 		if (singleplayer == true)
 		{
-			
 			if (IAF == true)
 			{
-				cout << "Turno de la IA\n";
-				cout << "\n";
+				std::cout << "Turno de la IA\n";
+
+				
+				srand(time(0)); // Inicializador
+
+				// Escoge una casilla aleatoria que no esté ocupada
+				int fila, columna;
+				do
+				{
+					fila = rand() % 5; // genera un número aleatorio entre 0 y 4
+					columna = rand() % 5;
+				} while (Tablero[fila][columna] != ' ' && Tablero[fila][columna] != '_'); // repite hasta que se encuentre una casilla desocupada
+
+				
+				char figura = (rand() % 2) ? 'S' : 'O'; 
+
+				
+				Tablero[fila][columna] = figura; // Coloca figura
+
+				std::cout << "IA ha elegido la fila " << fila + 1 << ", columna " << columna + 1 << " y la figura '" << figura << "'.\n";
+				std::cout << "\n";
 			}
+			
 			else if (IAM == true)
 			{
 				cout << "Turno de la IA\n";
@@ -651,7 +674,7 @@ int main()
 				cout << "ocurrio un problema" << endl;
 			}
 		}
-			 
+
 		if (multijugador == true)
 		{
 			if (jugador2 == true)
@@ -660,7 +683,7 @@ int main()
 				verificadorcasilla(V11, V12, V13, V14, V15, V21, V22, V23, V24, V25, V31, V32, V33, V34, V35, V41, V42, V43, V44, V45, V51, V52, V53, V54, V55, fila, columna,
 					CV11, CV12, CV13, CV14, CV15, CV21, CV22, CV23, CV24, CV25, CV31, CV32, CV33, CV34, CV35, CV41, CV42, CV43, CV44, CV45, CV51, CV52, CV53, CV54, CV55, figura);
 			}
-		}	
+		}
 
 		//Asignar valores
 		for (int i{ 1 }; i < 6; i++)
