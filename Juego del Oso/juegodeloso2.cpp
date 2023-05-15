@@ -648,6 +648,7 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 
 					// Escoge una casilla aleatoria que no esté ocupada
 					int filaIA, columnaIA, aleatorioIA;
+					char figuraIA {' '};
 					while (true)
 					{
 						filaIA = rand() % 5 + 1; // genera un número aleatorio entre 1 y 5
@@ -658,13 +659,13 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 							aleatorioIA = rand() % 2 + 1;
 							if (aleatorioIA == 1)
 							{
-								figura = 's';
+								figuraIA = 'S';
 								break;
 							}
 							else if (aleatorioIA == 2) 
 							{
 
-								figura = 'O';
+								figuraIA = 'O';
 								break;
 							}
 						}
@@ -675,9 +676,9 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 						}
 					}
 
-					Tablero[filaIA][columnaIA] = figura; // Coloca figura
+					Tablero[filaIA][columnaIA] = figuraIA; // Coloca figura
 
-					std::cout << "IA ha elegido la fila " << filaIA  << ", columna " << columnaIA  << " y la figura '" << figura << "'.\n";
+					std::cout << "IA ha elegido la fila " << filaIA  << ", columna " << columnaIA  << " y la figura '" << figuraIA << "'.\n";
 					std::cout << "\n";
 				}
 
