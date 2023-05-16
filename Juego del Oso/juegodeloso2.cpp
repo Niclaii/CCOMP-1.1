@@ -648,7 +648,6 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 
 					// Escoge una casilla aleatoria que no esté ocupada
 					int filaIA, columnaIA, aleatorioIA;
-					char figuraIA {' '};
 					while (true)
 					{
 						filaIA = rand() % 5 + 1; // genera un número aleatorio entre 1 y 5
@@ -659,13 +658,13 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 							aleatorioIA = rand() % 2 + 1;
 							if (aleatorioIA == 1)
 							{
-								figuraIA = 'S';
+								figura = 's';
 								break;
 							}
 							else if (aleatorioIA == 2) 
 							{
 
-								figuraIA = 'O';
+								figura = 'O';
 								break;
 							}
 						}
@@ -676,9 +675,9 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 						}
 					}
 
-					Tablero[filaIA][columnaIA] = figuraIA; // Coloca figura
+					Tablero[filaIA][columnaIA] = figura; // Coloca figura
 
-					std::cout << "IA ha elegido la fila " << filaIA  << ", columna " << columnaIA  << " y la figura '" << figuraIA << "'.\n";
+					std::cout << "IA ha elegido la fila " << filaIA  << ", columna " << columnaIA  << " y la figura '" << figura << "'.\n";
 					std::cout << "\n";
 				}
 
@@ -823,40 +822,6 @@ void FormasDeGanar(bool V1, bool V2, bool V3, int& PJugador1, int& PJugador2, bo
 						break;
 					}
 				}
-				else if (PJugador1 < puntosIA)
-				{
-					cout << "El ganador es la IA!!" << endl;
-					cout << "Desea jugar de nuevo? (S/N)" << endl;
-					cin >> replay;
-					if (replay == 'S' || replay == 's')
-					{
-						JugarDNuevo(replay, Win, Tablero, jugador1, jugador2, tmp, V11, V12, V13, V14, V15, V21, V22, V23, V24, V25, V31, V32, V33, V34, V35, V41, V42, V43, V44, V45, V51, V52, V53, V54, V55, FG1, FG2, FG3, FG4, FG5, FG6, FG7, FG8, FG9, FG10,
-							FG11, FG12, FG13, FG14, FG15, FG16, FG17, FG18, FG19, FG20, FG21, FG22, FG23, FG24, FG25, FG26, FG27, FG28, FG29, FG30, FG31, FG32, FG33, FG34, FG35, FG36, FG37, FG38, FG39, FG40, FG41, FG42, FG43, FG44, FG45, FG46, FG47, FG48, i, fila
-							, columna, PJugador1, PJugador2);
-					}
-					if (replay == 'N' || replay == 'n')
-					{
-						break;
-					}
-				}
-				else if (PJugador1 > puntosIA)
-				{
-					cout << "El ganador es el Jugador 1 !!" << endl;
-					cout << "Desea jugar de nuevo? (S/N)" << endl;
-					cin >> replay;
-					if (replay == 'S' || replay == 's')
-					{
-						JugarDNuevo(replay, Win, Tablero, jugador1, jugador2, tmp, V11, V12, V13, V14, V15, V21, V22, V23, V24, V25, V31, V32, V33, V34, V35, V41, V42, V43, V44, V45, V51, V52, V53, V54, V55, FG1, FG2, FG3, FG4, FG5, FG6, FG7, FG8, FG9, FG10,
-							FG11, FG12, FG13, FG14, FG15, FG16, FG17, FG18, FG19, FG20, FG21, FG22, FG23, FG24, FG25, FG26, FG27, FG28, FG29, FG30, FG31, FG32, FG33, FG34, FG35, FG36, FG37, FG38, FG39, FG40, FG41, FG42, FG43, FG44, FG45, FG46, FG47, FG48, i, fila
-							, columna, PJugador1, PJugador2);
-					}
-					if (replay == 'N' || replay == 'n')
-					{
-						break;
-					}	
-				}
-				
-					
 			}
 		} while (Win == false);
 
