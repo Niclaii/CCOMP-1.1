@@ -2,15 +2,16 @@
 #include <iostream>
 #include <string>
 
+
 class Pokemon
 {
 	private:
 
 		//int Stats[6];
 		int	Nivel, nPokedex;
-		string Sprite;
-		string Tipo;
-		string Nombre;
+		std::string Sprite;
+		std::string Tipo;
+		std::string Nombre;
 
 
 	public:
@@ -43,46 +44,47 @@ class Pokemon
 		{
 			nPokedex = nPoke;
 		}
-		string getSprite()
+		std::string getSprite()
 		{
 			return Sprite;
 		}
 
-		void setSprite(string sprite)
+		void setSprite(std::string sprite)
 		{
 			Sprite = sprite;
 		}
-		string getTipo()
+		std::string getTipo()
 		{
 			return Tipo;
 		}
 
-		void setTipo(string tipo)
+		void setTipo(std::string tipo)
 		{
 			Tipo = tipo;
 		}
-		string getNombre()
+		std::string getNombre()
 		{
 			return Nombre;
 		}
 
-		void setNombre(string nombre)
+		void setNombre(std::string nombre)
 		{
 			Nombre = nombre;
 		}
 
-		void RegistrarPokedex(int nPoke, string sprite, string tipo, string nombre)
+		void RegistrarPokedex(int nPoke, std::string sprite, std::string tipo, std::string nombre,int nivel)
 		{
 			setnPokedex(nPoke);
 			setSprite(sprite);
 			setTipo(tipo);
 			setNombre(nombre);
+			setNivel(nivel);
 	
 		}
 
 		void MostrarPoke()
 		{
-			cout << nPokedex << "° " << Nombre << " Tipo:" << Tipo << " Nivel:" << Nivel << endl;
+			std::cout << nPokedex << "." << Nombre << " / Tipo " << Tipo << " / Nivel " << Nivel << std::endl;
 		}
 
 
