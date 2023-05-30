@@ -1,7 +1,7 @@
 #include <iostream>
-#include "cPokemon.cpp"
+#include "cPokemon.h"
 #include "Sprites.h"
-using namespace std;
+
 
 int main()
 {
@@ -24,8 +24,8 @@ int main()
 
 	int num{ 0 };
 
-	cout << "ingresa el numero de Pokedex\n1.Bulbasaur\n2.Ivysaur\n3.Venusaur\n4.Charmander\n5.Charmeleon\n6.Charizard\n";
-	cin >> num;
+	std::cout << "ingresa el numero de Pokedex\n1.Bulbasaur\n2.Ivysaur\n3.Venusaur\n4.Charmander\n5.Charmeleon\n6.Charizard\n";
+	std::cin >> num;
 
 	if (num == 1)
 	{
