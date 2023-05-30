@@ -31,6 +31,7 @@ int main()
 	{
 		Sprite(num);
 		Bulbasaur.MostrarPoke();
+		Bulbasaur.getATK1();
 	}
 	else if (num == 2)
 	{
