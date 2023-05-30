@@ -106,6 +106,45 @@ void Pokemon::setVEL(int VEL)
 	Stats[5] = VEL;
 }
 
+std::string Pokemon::getATK1()
+{
+	return Ataque1;
+}
+
+void Pokemon::setATK1(std::string Atk1)
+{
+	Ataque1 = Atk1;
+}
+
+std::string Pokemon::getATK2()
+{
+	return Ataque2;
+}
+
+void Pokemon::setATK2(std::string Atk2)
+{
+	Ataque2 = Atk2;
+}
+
+std::string Pokemon::getATK3()
+{
+	return Ataque3;
+}
+
+void Pokemon::setATK3(std::string Atk3)
+{
+	Ataque3 = Atk3;
+}
+
+std::string Pokemon::getATK4()
+{
+	return Ataque4;
+}
+
+void Pokemon::setATK4(std::string Atk4)
+{
+	Ataque4 = Atk4;
+}
 void Pokemon::RegistrarPokedex(int nPoke, std::string sprite, std::string tipo, std::string nombre, int nivel)
 {
 	setnPokedex(nPoke);
@@ -179,3 +218,51 @@ void Pokemon::MostrarPoke()
 	std::cout << nPokedex << "." << Nombre << " / Tipo " << Tipo << " / Nivel " << Nivel << std::endl;
 	std::cout << "HP : " << Stats[0] << "\nATK : " << Stats[1] << "\nDEF : " << Stats[2] << "\nSP.ATK : " << Stats[3] << "\nSP.DEF : " << Stats[4] << "\nVEL : " << Stats[5] << "\n";
 }
+
+void Pokemon::AsignarAtaques(int num)
+{
+	if (num == 1)
+	{
+		setATK1("Absorber");
+		setATK2("Desarrollo");
+		setATK3("Placaje");
+		setATK4("Hoja Afilada");
+	}
+	else if (num == 2)
+	{
+		setATK1("Hoja Afilada");
+		setATK2("Drenadoras");
+		setATK3("Megaagotar");
+		setATK4("Desarrollo");
+	}
+	else if (num == 3)
+	{
+		setATK1("Somnifero");
+		setATK2("Tormenta Floral");
+		setATK3("Bomba Lodo");
+		setATK4("Gigadrenado");
+	}
+	else if (num == 4)
+	{
+		setATK1("Ascuas");
+		setATK2("Arañazo");
+		setATK3("Malicioso");
+		setATK4("Pantalla de humo");
+	}
+	else if (num == 5)
+	{
+		setATK1("Garra dragon");
+		setATK2("Lanzallamas");
+		setATK3("Tumba rocas");
+		setATK4("Triturar");
+	}
+	else if (num == 6)
+	{
+		setATK1("");
+		setATK2("");
+		setATK3("");
+		setATK4("");
+	}
+}
+
+

@@ -66,6 +66,17 @@ public:
 	int getVEL();
 	void setVEL(int VEL);
 
+	std::string getATK1();
+	void setATK1(std::string Atk1);
+
+	std::string getATK2();
+	void setATK2(std::string Atk2);
+
+	std::string getATK3();
+	void setATK3(std::string Atk3);
+
+	std::string getATK4();
+	void setATK4(std::string Atk4);
 	// ---------------------------------------------------------------------------------------------------------------- 
 
 
@@ -76,5 +87,9 @@ public:
 	void IngresarStats();
 
 	void MostrarPoke();
+
+	void AsignarAtaques(int);
+
+
 
 };
