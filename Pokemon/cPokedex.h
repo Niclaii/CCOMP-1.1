@@ -12,7 +12,7 @@ class Pokedex : public Pokemon
 	public:
 		Pokedex(std::string Huella, std::string Descripcion);
 
-
+		//void RegistrarPokedex(int nPoke, std::string tipo, std::string nombre, int nivel);
 
 
 
