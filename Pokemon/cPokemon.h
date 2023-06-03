@@ -9,15 +9,14 @@ private:
 
 	int Stats[6];
 	int	Nivel, nPokedex;
-	std::string Sprite, Tipo, Nombre, Ataque1, Ataque2, Ataque3, Ataque4;
-
+	std::string Tipo, Nombre, Ataque1, Ataque2, Ataque3, Ataque4;
+	
 public:
 	// CONSTRUCTOR ---------------------------------------------------------------------------------------------------------------------
 	Pokemon()
 	{
 		Nivel = 0;
 		nPokedex = 0;
-		Sprite = " ";
 		Tipo = " ";
 		Nombre = " ";
 		Stats[0] = 0; //HP
@@ -38,9 +37,6 @@ public:
 
 	int getnPokedex();
 	void setnPokedex(int);
-
-	std::string getSprite();
-	void setSprite(std::string);
 
 	std::string getTipo();
 	void setTipo(std::string);
@@ -82,14 +78,13 @@ public:
 
 	// METODOS DE LA CLASE ----------------------------------------------------------------------------------------------
 
-	void RegistrarPokedex(int, std::string, std::string, std::string, int);
-
 	void IngresarStats();
 
 	void MostrarPoke();
 
 	void AsignarAtaques(int);
 
+	void RegistrarPokedex(int , std::string , std::string , int );
 
 
 };

@@ -1,4 +1,5 @@
 #include "cPokemon.h"
+#include "Sprites.h"
 #include <iostream>
 #include <string>
 
@@ -14,24 +15,18 @@ void Pokemon::setNivel(int nivel)
 {
 	Nivel = nivel;
 }
+
+
 int Pokemon::getnPokedex()
 {
 	return nPokedex;
 }
-
 void Pokemon::setnPokedex(int nPoke)
 {
 	nPokedex = nPoke;
 }
-std::string Pokemon::getSprite()
-{
-	return Sprite;
-}
 
-void Pokemon::setSprite(std::string sprite)
-{
-	Sprite = sprite;
-}
+
 std::string Pokemon::getTipo()
 {
 	return Tipo;
@@ -145,14 +140,6 @@ void Pokemon::setATK4(std::string Atk4)
 {
 	Ataque4 = Atk4;
 }
-void Pokemon::RegistrarPokedex(int nPoke, std::string sprite, std::string tipo, std::string nombre, int nivel)
-{
-	setnPokedex(nPoke);
-	setSprite(sprite);
-	setTipo(tipo);
-	setNombre(nombre);
-	setNivel(nivel);
-}
 
 void Pokemon::IngresarStats()
 {
@@ -164,6 +151,7 @@ void Pokemon::IngresarStats()
 		setSPATK(65);
 		setSPDEF(65);
 		setVEL(45);
+
 
 	}
 	else if (Nombre == "Ivysaur")
@@ -213,11 +201,40 @@ void Pokemon::IngresarStats()
 	}
 }
 
+
+
 void Pokemon::MostrarPoke()
-{
+{	
+	if (Nombre == "Bulbasaur")
+	{
+		Sprite(SpriteBulbasaurFront, SpriteBulbasaurBack, 24);
+	}
+	else if (Nombre == "Ivysaur")
+	{
+		Sprite(SpriteIvysaurFront, SpriteIvysaurBack, 24);
+	}
+	else if (Nombre == "Venusaur")
+	{
+		Sprite(SpriteVenusaurFront, SpriteVenusaurBack, 23);
+	}
+	else if (Nombre == "Charmander")
+	{
+		Sprite(SpriteCharmanderFront, SpriteCharmanderBack, 22);
+	}
+	else if (Nombre == "Charmeleon")
+	{
+		Sprite(SpriteCharmeleonFront, SpriteCharmeleonBack, 23);
+	}
+	else if (Nombre == "Charizard")
+	{
+		Sprite(SpriteCharizardFront, SpriteCharizardBack, 33);
+	}
+	
 	std::cout << nPokedex << "." << Nombre << " / Tipo " << Tipo << " / Nivel " << Nivel << std::endl;
 	std::cout << "HP : " << Stats[0] << "\nATK : " << Stats[1] << "\nDEF : " << Stats[2] << "\nSP.ATK : " << Stats[3] << "\nSP.DEF : " << Stats[4] << "\nVEL : " << Stats[5] << "\n";
 }
+
+
 
 void Pokemon::AsignarAtaques(int num)
 {
