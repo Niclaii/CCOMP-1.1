@@ -1,17 +1,14 @@
 #pragma once
-#include <iostream>
 
-class Personaje
-{
-	private:
+#include <string>
 
+class Personaje {
+private:
+    std::string Sprite_Mundo;
+    std::string Sprite_Combate;
+    std::string Nombre;
+    std::string Dialogo_Interaccion;
 
-
-	public:
-
-
-
-
-
-
+public:
+    void Asignar_Sprite(std::string sprite);
 };
