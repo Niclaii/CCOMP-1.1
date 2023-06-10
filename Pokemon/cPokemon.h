@@ -8,7 +8,7 @@ class Pokemon
 private:
 
 	int Stats[6];
-	int	Nivel, nPokedex;
+	int	Nivel;
 	std::string Tipo, Nombre, Ataque1, Ataque2, Ataque3, Ataque4;
 	
 public:
@@ -16,7 +16,6 @@ public:
 	Pokemon()
 	{
 		Nivel = 0;
-		nPokedex = 0;
 		Tipo = " ";
 		Nombre = " ";
 		Stats[0] = 0; //HP
@@ -34,9 +33,6 @@ public:
 	// SETTERS Y GETTERS --------------------------------------------------------------------------------------------------------------
 	int getNivel();
 	void setNivel(int);
-
-	int getnPokedex();
-	void setnPokedex(int);
 
 	std::string getTipo();
 	void setTipo(std::string);
@@ -78,13 +74,14 @@ public:
 
 	// METODOS DE LA CLASE ----------------------------------------------------------------------------------------------
 
-	void IngresarStats();
 
-	void MostrarPoke();
+	void RegistarPoke(int,int , std::string, std::string);
+
+	void IngresarStats();
 
 	void AsignarAtaques(int);
 
-	void RegistrarPokedex(int , std::string , std::string , int );
+	
 
 
 };
