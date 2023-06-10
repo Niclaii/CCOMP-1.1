@@ -1,18 +1,18 @@
 #pragma once
-#include <iostream>
-#include "cPersonaje.h"
 
+#include "Personaje.h"
+#include <string>
 
-class Jugador :public Personaje
+class Jugador : public Personaje 
 {
-	private:
-	
-	
-	
-	public:	
-	
+private:
+    int JugadorX;
+    int JugadorY;
+    std::string Interaccion;
 
-
-
-
+public:
+    void Interaccion();
+    void Equipo_pokemon();
+    
+    
 };
