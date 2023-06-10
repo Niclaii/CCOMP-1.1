@@ -40,8 +40,9 @@ int main()
 		std::cout << "ingresa el numero de Pokedex\n1.Bulbasaur\n2.Ivysaur\n3.Venusaur\n4.Charmander\n5.Charmeleon\n6.Charizard\n";
 		std::cin >> num;
 
-		*Bulbasaur.Pokedex::MostrarPoke(Bulbasaur, num);
+		Pokedex::MostrarPoke(Bulbasaur, num);
 		
+
 	}
 	
 	delete Bulbasaurptr;

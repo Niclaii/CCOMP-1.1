@@ -2,6 +2,7 @@
 #include <string>
 #include "cPokedex.h"
 #include "Sprites.h"
+#include "Descripcion.h"
 
 int Pokedex::getnPokedex()
 {
@@ -22,6 +23,27 @@ void Pokedex::setTipo(std::string tipo)
 {
 	Tipo = tipo;
 }
+
+std::string Pokedex::getHuella()
+{
+	return Huella;
+}
+
+void Pokedex::setHuella(std::string huella)
+{
+	Huella = huella;
+}
+
+std::string Pokedex::getDescripcion()
+{
+	return Descripcion;
+}
+
+void Pokedex::setDescripcion(std::string descripcion)
+{
+	Descripcion = descripcion;
+}
+
 std::string Pokedex::getNombre()
 {
 	return Nombre;
@@ -32,11 +54,14 @@ void Pokedex::setNombre(std::string nombre)
 	Nombre = nombre;
 }
 
-void Pokedex::RegistrarPokedex(int nPoke, std::string tipo, std::string nombre)
+void Pokedex::RegistrarPokedex(int nPoke, std::string tipo, std::string nombre,std::string huella,std::string descripcion)
 {
 	setnPokedex(nPoke);
 	setTipo(tipo);
 	setNombre(nombre);
+	setHuella(huella);
+	setDescripcion(descripcion);
+
 }
 
 void Pokedex::MostrarPoke(Pokemon* Poke,int num)
@@ -96,5 +121,5 @@ void Pokedex::MostrarPoke(Pokemon* Poke,int num)
 		}
 		
 	}
-	std::cout << nPokedex << "." << nombre << " / Tipo " << Tipo << " / Nivel " << std::endl;
+	std::cout << nPokedex << "." << nombre << " / Tipo " << Tipo << " \n " << Descripcion << std::endl;
 }

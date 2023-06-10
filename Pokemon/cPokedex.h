@@ -19,10 +19,16 @@ class Pokedex
 		std::string getTipo();
 		void setTipo(std::string);
 
+		std::string getHuella();
+		void setHuella(std::string);
+
+		std::string getDescripcion();
+		void setDescripcion(std::string);
+
 		std::string getNombre();
 		void setNombre(std::string);
 
-		void RegistrarPokedex(int nPoke, std::string tipo, std::string nombre);
+		void RegistrarPokedex(int , std::string , std::string, std::string, std::string);
 			
 		void MostrarPoke(Pokemon*,int);
 
