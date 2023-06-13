@@ -1,12 +1,14 @@
 #include <iostream>
 #include "cPokemon.h"
 #include "cPokedex.h"
+#include "Descripcion.h"
 //#include "combate.h"
 
 
 
 int main()
 {
+	Pokedex Pokedex01;
 	Pokemon Bulbasaur,  Ivysaur,  Venusaur,  Charmander,  Charmeleon,  Charizard;
 	Pokemon *Bulbasaurptr, *Ivysaurptr, *Venusaurptr, *Charmanderptr, *Charmeleonptr, *Charizardptr;
 	Bulbasaurptr = new Pokemon;
@@ -40,8 +42,40 @@ int main()
 		std::cout << "ingresa el numero de Pokedex\n1.Bulbasaur\n2.Ivysaur\n3.Venusaur\n4.Charmander\n5.Charmeleon\n6.Charizard\n";
 		std::cin >> num;
 
-		Pokedex::MostrarPoke(Bulbasaur, num);
-		
+		if (num == 1)
+		{
+			Pokedex01.MostrarPoke(Bulbasaurptr,DBulbasaur);
+			std::cout << "\n";
+		}
+		else if (num == 2)
+		{
+			Pokedex01.MostrarPoke(Ivysaurptr,DIvysaur);
+			std::cout << "\n";
+		}
+		else if (num == 3)
+		{
+
+			Pokedex01.MostrarPoke(Venusaurptr,DVenusaur);
+			std::cout << "\n";
+		}
+		else if (num == 4)
+		{
+			Pokedex01.MostrarPoke(Charmanderptr,DCharmander);
+			std::cout << "\n";
+
+		}
+		else if (num == 5)
+		{
+			Pokedex01.MostrarPoke(Charmeleonptr,DCharmeleon);
+			std::cout << "\n";
+
+		}
+		else if (num == 6)
+		{
+			Pokedex01.MostrarPoke(Charizardptr,DCharizard);
+			std::cout << "\n";
+
+		}
 
 	}
 	

@@ -1,8 +1,9 @@
-#include "NPC.h"
+#include <iostream>
+#include "cNPC.h"
 
-void NPC::Asignar_Sprite(std::string sprite) {
-    Sprite_mundo = sprite;
-    Sprite_Combate = sprite;
+void NPC::Asignar_Sprite(std::string spriteMundo,std::string spriteCombate) {
+    Sprite_mundo = spriteMundo;
+    Sprite_Combate = spriteCombate;
 }
 
 void NPC::Asignar_Nombre(std::string nombre) {

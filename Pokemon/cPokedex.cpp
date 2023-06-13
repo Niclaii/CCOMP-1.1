@@ -2,7 +2,6 @@
 #include <string>
 #include "cPokedex.h"
 #include "Sprites.h"
-#include "Descripcion.h"
 
 int Pokedex::getnPokedex()
 {
@@ -64,62 +63,59 @@ void Pokedex::RegistrarPokedex(int nPoke, std::string tipo, std::string nombre,s
 
 }
 
-void Pokedex::MostrarPoke(Pokemon* Poke,int num)
+void Pokedex::MostrarPoke(Pokemon* Poke,std::string Descripcion)
 {
 	std::string nombre = Poke->getNombre();
 
-
-	if (num == 1)
+	if (nombre == "Bulbasaur")
 	{
-		if (nombre == "Bulbasaur")
-		{
-			Sprite(SpriteBulbasaurFront, SpriteBulbasaurBack, 24);
-		}
+		Sprite(SpriteBulbasaurFront, SpriteBulbasaurBack, 24);
+		setnPokedex(1);
+		setTipo("Planta");
+		setNombre(nombre);
 	}
-	else if (num == 2)
-	{
-		
-		if (nombre == "Ivysaur")
-		{
-			Sprite(SpriteIvysaurFront, SpriteIvysaurBack, 24);
-		
-		}
-	}
-	else if (num == 3)
-	{
-		
-		if (nombre == "Venusaur")
-		{
-			Sprite(SpriteVenusaurFront, SpriteVenusaurBack, 23);
-		
-		}
-	}
-	else if (num == 4)
-	{
-		if (nombre == "Charmander")
-		{
-			Sprite(SpriteCharmanderFront, SpriteCharmanderBack, 22);
-
-		}
-		
-	}
-	else if (num == 5)
-	{
-		if (nombre == "Charmeleon")
-		{
-			Sprite(SpriteCharmeleonFront, SpriteCharmeleonBack, 23);
-		
-		}
-		
-	}
-	else if (num == 6)
-	{
-		if (nombre == "Charizard")
-		{
-			Sprite(SpriteCharizardFront, SpriteCharizardBack, 33);
 	
-		}
-		
+	
+	else if (nombre == "Ivysaur")
+	{
+		Sprite(SpriteIvysaurFront, SpriteIvysaurBack, 24);
+		setnPokedex(2);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
 	}
-	std::cout << nPokedex << "." << nombre << " / Tipo " << Tipo << " \n " << Descripcion << std::endl;
+
+	
+	else if (nombre == "Venusaur")
+	{
+		Sprite(SpriteVenusaurFront, SpriteVenusaurBack, 23);
+		setnPokedex(3);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
+	}
+	
+	else if (nombre == "Charmander")
+	{
+		Sprite(SpriteCharmanderFront, SpriteCharmanderBack, 22);
+		setnPokedex(4);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+	
+
+	else if (nombre == "Charmeleon")
+	{
+		Sprite(SpriteCharmeleonFront, SpriteCharmeleonBack, 23);
+		setnPokedex(5);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+	
+	else if (nombre == "Charizard")
+	{
+		Sprite(SpriteCharizardFront, SpriteCharizardBack, 33);
+		setnPokedex(6);
+		setTipo("Fuego/Volador");
+		setNombre(nombre);
+	}
+	std::cout << Pokedex::nPokedex << "." << nombre << " / Tipo " << Tipo << " \n " << Descripcion << std::endl;
 }

@@ -11,7 +11,15 @@ class Pokedex
 		int nPokedex;
 
 	public:
-		Pokedex(std::string Huella, std::string Descripcion);
+		Pokedex() 
+		{
+			Huella = " ";
+			Descripcion = " ";
+			Tipo = " ";
+			Nombre = " ";
+			nPokedex = 0;
+
+		};
 
 		int getnPokedex();
 		void setnPokedex(int);
@@ -30,7 +38,7 @@ class Pokedex
 
 		void RegistrarPokedex(int , std::string , std::string, std::string, std::string);
 			
-		void MostrarPoke(Pokemon*,int);
+		void MostrarPoke(Pokemon*,std::string);
 
 
 

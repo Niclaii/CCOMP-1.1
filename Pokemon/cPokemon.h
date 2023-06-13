@@ -78,6 +78,8 @@ public:
 
 	void IngresarStats();
 
+	void MostrarStats(Pokemon);
+
 	void AsignarAtaques(int);
 
 	

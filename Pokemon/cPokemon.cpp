@@ -1,5 +1,4 @@
 #include "cPokemon.h"
-#include "Sprites.h"
 #include <iostream>
 #include <string>
 
@@ -189,6 +188,23 @@ void Pokemon::IngresarStats()
 		setVEL(100);
 	}
 }
+
+
+void MostrarStats(Pokemon poke)
+{
+	int HP, ATK, ATKSP, DEF, SPDEF, VEL;
+
+	HP = poke.getHP();
+	ATK = poke.getATK();
+	ATKSP = poke.getSPATK();
+	DEF = poke.getDEF();
+	SPDEF = poke.getSPDEF();
+	VEL = poke.getVEL();
+
+
+
+}
+
 
 void Pokemon::RegistarPoke(int nPoke,int nivel, std::string tipo, std::string nombre)
 {

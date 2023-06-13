@@ -22,6 +22,15 @@ class Personaje
 
 		};
 
+		void setSpriteMundo();
+		std::string getSpriteMundo();
+
+		void setSpriteCombate();
+		std::string getSpriteCombate();
+
+		void setNombrePersonaje();
+		std::string getNombrePersonaje();
+
 		void Dialogo_Interaccion();
 
 		void Asignar_Sprite(std::string, std::string);
