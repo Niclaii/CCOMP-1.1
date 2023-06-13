@@ -2,45 +2,57 @@
 #include "cPantalla.h"
 
 
+void Pantalla::setFila(int Fila)
+{
+	fila = Fila;
+};
+int Pantalla::getFila()
+{
+	return fila;
+};
+
+void Pantalla::setColumna(int Columna)
+{
+	columna = Columna;
+};
+int Pantalla::getColumna()
+{
+	return columna;
+};
+
+
+
+
 void Pantalla::Mapeado()
 {
-	char Base[60][235];
+	int Columna = getColumna();
+	int Fila = getFila();
 
 
-		int fila = 30;
-		int columna = 170;
-
-		for (int i{ 0 }; i < 60; i++)
+	for (int i{ 0 }; i < Fila; i++)
+	{
+		for (int j{ 0 }; j < Columna; j++) 
 		{
-			for (int j{ 0 }; j < 235; j++)
+			if (i == 0 || i == Fila)
 			{
-				Base[i][j] = '_';
-				if (j == 234)
-				{
-					std::cout << "\n";
-					std::cout << Base[i][j];
-				}
-				else if ((29 < i < 51) && (169 < j < 226))
-				{
-					Base[i][j] = '@';
-				}
-				else
-				{
-					std::cout << Base[i][j];
-				}
+				std::cout << "@";
 			}
+			else if (j == 0 || j == Fila)
+			{
+				std::cout << "@";
+			}
+			else
+			{
+				std::cout << " ";
+			}
+			
 		}
-
+		std::cout << "\n";
+	}
 }
-
-
-
-
 
 int main()
 {
-
-
-
-
+	Pantalla Matriz;
+	Matriz.Mapeado();
 }
