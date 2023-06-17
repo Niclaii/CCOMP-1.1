@@ -26,6 +26,13 @@ class Jugador :public Personaje
 			Pokemon5;
 			Pokemon6;
 		};
+		void setJugador_x(int);
+		int getJugador_x();
+
+		void setJugador_y(int);
+		int getJugador_y();
+
+
 		void setPokemon1(Pokemon);
 		Pokemon getPokemon1();		
 
@@ -48,4 +55,5 @@ class Jugador :public Personaje
 
 		void Equipo_Pokemon();
 
+		void Moverse(char,int);
 };

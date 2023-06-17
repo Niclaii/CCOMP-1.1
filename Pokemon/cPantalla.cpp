@@ -25,34 +25,37 @@ int Pantalla::getColumna()
 
 void Pantalla::Mapeado()
 {
-	int Columna = getColumna();
-	int Fila = getFila();
-
-
-	for (int i{ 0 }; i < Fila; i++)
-	{
-		for (int j{ 0 }; j < Columna; j++) 
-		{
-			if (i == 0 || i == Fila)
-			{
-				std::cout << "@";
-			}
-			else if (j == 0 || j == Fila)
-			{
-				std::cout << "@";
-			}
-			else
-			{
-				std::cout << " ";
-			}
-			
-		}
-		std::cout << "\n";
-	}
+    for (int i = 0; i < MAP_SIZE; ++i) {
+        for (int j = 0; j < MAP_SIZE; ++j) {
+            if (i == jugador.getJugador_y() && j == jugador.getJugador_x())
+                std::cout << 'P';
+            else
+                std::cout << '.';
+        }
+        std::cout << std::endl;
+    }
 }
 
-int main()
-{
-	Pantalla Matriz;
-	Matriz.Mapeado();
+void Pantalla::handleInput() {
+    std::string input;
+    std::getline(std::cin, input);
+    if (!input.empty()) {
+        jugador.Moverse(input[0], MAP_SIZE);
+    }
+}
+
+
+
+
+
+int main() {
+    Pantalla Juego;
+
+    while (true) 
+    {
+        Juego.Mapeado();
+        Juego.handleInput();
+    }
+
+    return 0;
 }

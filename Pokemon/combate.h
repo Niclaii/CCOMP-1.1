@@ -1,10 +1,15 @@
+#include <iostream>
+#include "cPokemon.h"
+#include "Sprites.h"
+
+
 class Combate {
 public:
     static void iniciar(Pokemon& pokemon1, Pokemon& pokemon2) {
         std::cout << pokemon1.getNombre() << " contra " << pokemon2.getNombre() << "!\n";
 
-        Sprite(pokemon1.getnPokedex());
-        Sprite(pokemon2.getnPokedex());
+        /*Sprite(pokemon1);
+        Sprite(pokemon2);*/
 
         while (true) {
             // Pokemon1 ataca a Pokemon2
@@ -14,7 +19,8 @@ public:
                 std::cout << pokemon2.getNombre() << " se ha debilitado!\n";
                 std::cout << pokemon1.getNombre() << " gana la batalla!\n";
                 break;
-            } else {
+            }
+            else {
                 std::cout << pokemon2.getNombre() << " tiene " << pokemon2.getHP() << " puntos de salud restantes.\n";
             }
 
@@ -25,19 +31,10 @@ public:
                 std::cout << pokemon1.getNombre() << " se ha debilitado!\n";
                 std::cout << pokemon2.getNombre() << " gana la batalla!\n";
                 break;
-            } else {
+            }
+            else {
                 std::cout << pokemon1.getNombre() << " tiene " << pokemon1.getHP() << " puntos de salud restantes.\n";
             }
         }
     }
 };
-
-int main() {
-    // Crear Pokémon y registrarlos en la Pokédex
-    // ...
-
-    // Iniciar un combate entre dos Pokémon
-    Combate::iniciar(Bulbasaur, Charmander);
-
-    return 0;
-}

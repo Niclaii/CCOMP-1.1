@@ -1,4 +1,8 @@
 #pragma once
+#include "cJugador.h"
+
+#define MAP_SIZE 10
+
 
 class Pantalla
 {
@@ -8,16 +12,20 @@ class Pantalla
 
 
 	public:
+        Jugador jugador;
+        const int  MAP_SiZE = 10;
 
 		Pantalla()
 		{
 
 			fila = 179;
 			columna = 30;
-
 		};
+        
 
-		void setFila(int);
+        //Pantalla() : jugador(MAP_SIZE / 2, MAP_SIZE / 2) {}
+
+  		void setFila(int);
 		int getFila();
 
 		void setColumna(int);
@@ -26,10 +34,7 @@ class Pantalla
 
 
 		//METODOS----------------------------------------------------
-		void Mapeado();
-
-		
-
-
-
+        void Mapeado();
+		void handleInput();
+        
 };
