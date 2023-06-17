@@ -1,43 +1,50 @@
-class Combate {
+#include <iostream>
+#include <string>
+
+class Move {
 public:
-    static void iniciar(Pokemon& pokemon1, Pokemon& pokemon2) {
-        std::cout << pokemon1.getNombre() << " contra " << pokemon2.getNombre() << "!\n";
+    std::string name;
+    int damage;
 
-        Sprite(pokemon1.getnPokedex());
-        Sprite(pokemon2.getnPokedex());
+    Move(std::string name, int damage) : name(name), damage(damage) {}
+};
 
-        while (true) {
-            // Pokemon1 ataca a Pokemon2
-            pokemon2.setHP(pokemon2.getHP() - pokemon1.getATK());
-            std::cout << pokemon1.getNombre() << " usa " << pokemon1.getATK1() << " en " << pokemon2.getNombre() << "!\n";
-            if (pokemon2.getHP() <= 0) {
-                std::cout << pokemon2.getNombre() << " se ha debilitado!\n";
-                std::cout << pokemon1.getNombre() << " gana la batalla!\n";
-                break;
-            } else {
-                std::cout << pokemon2.getNombre() << " tiene " << pokemon2.getHP() << " puntos de salud restantes.\n";
-            }
+class Pokemon {
+public:
+    std::string name;
+    int health;
+    int attack;
+    Move move;
 
-            // Pokemon2 ataca a Pokemon1
-            pokemon1.setHP(pokemon1.getHP() - pokemon2.getATK());
-            std::cout << pokemon2.getNombre() << " usa " << pokemon2.getATK1() << " en " << pokemon1.getNombre() << "!\n";
-            if (pokemon1.getHP() <= 0) {
-                std::cout << pokemon1.getNombre() << " se ha debilitado!\n";
-                std::cout << pokemon2.getNombre() << " gana la batalla!\n";
-                break;
-            } else {
-                std::cout << pokemon1.getNombre() << " tiene " << pokemon1.getHP() << " puntos de salud restantes.\n";
-            }
-        }
+    Pokemon(std::string name, int health, int attack, Move move)
+        : name(name), health(health), attack(attack), move(move) {}
+
+    void performMove(Pokemon& opponent) {
+        std::cout << name << " usó " << move.name << "!\n";
+        opponent.health -= move.damage;
+        if (opponent.health < 0)
+            opponent.health = 0;
+        std::cout << opponent.name << " tiene " << opponent.health << " HP restantes.\n";
     }
 };
 
 int main() {
-    // Crear Pokémon y registrarlos en la Pokédex
-    // ...
+    Move thunderShock("Thunder Shock", 25);
+    Move vineWhip("Vine Whip", 20);
 
-    // Iniciar un combate entre dos Pokémon
-    Combate::iniciar(Bulbasaur, Charmander);
+    Pokemon pikachu("Pikachu", 100, 25, thunderShock);
+    Pokemon bulbasaur("Bulbasaur", 110, 20, vineWhip);
+
+    while (pikachu.health > 0 && bulbasaur.health > 0) {
+        pikachu.performMove(bulbasaur);
+        if (bulbasaur.health > 0)
+            bulbasaur.performMove(pikachu);
+    }
+
+    if (pikachu.health == 0)
+        std::cout << pikachu.name << " se ha debilitado!\n";
+    else if (bulbasaur.health == 0)
+        std::cout << bulbasaur.name << " se ha debilitado!\n";
 
     return 0;
 }
