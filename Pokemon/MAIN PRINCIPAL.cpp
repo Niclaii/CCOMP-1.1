@@ -3,7 +3,7 @@
 #include "cPokedex.h"
 #include "Descripcion.h"
 #include "cPantalla.h"
-//#include "combate.h"
+#include "cCombate.h"
 
 int main()
 {
@@ -106,11 +106,6 @@ int main()
 	{
 		std::cout << "Ocurrio un problema inesperado";
 	}
-
-
-
-	
-
 
 	return 0;
 }

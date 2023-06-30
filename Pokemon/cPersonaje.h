@@ -8,7 +8,7 @@ class Personaje
 	private:
 		std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
 
-		Pokemon EquipoPokemon;
+		Pokemon *EquipoPokemon;
 
 
 	public:
@@ -19,6 +19,7 @@ class Personaje
 			Sprite_Mundo;
 			Sprite_Combate;
 			NombrePersonaje;
+			EquipoPokemon =  new Pokemon[];
 
 		};
 

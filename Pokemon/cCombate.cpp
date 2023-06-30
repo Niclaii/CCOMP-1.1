@@ -1,75 +1,302 @@
 #include <iostream>
-#include <string>
-#include "cPokemon.h"
+#include "cCombate.h"
+#include "Sprites.h"
+#include "cPantalla.h"
 
-class Movimiento {
-public:
-    std::string nombre;
-    int danio;
+void Combate::CambiarPoke(Pokemon, Pokemon)
+{
 
-    Movimiento(std::string nombre, int danio) : nombre(nombre), danio(danio) {}
+
+
 };
 
-class Pokemon {
-public:
-    std::string nombre;
-    int salud;
-    int ataque;
-    Movimiento movimiento1;
-    Movimiento movimiento2;
 
-    Pokemon(std::string nombre, int salud, int ataque, Movimiento movimiento1, Movimiento movimiento2)
-        : nombre(nombre), salud(salud), ataque(ataque), movimiento1(movimiento1), movimiento2(movimiento2) {}
+void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
+{
+    int mov{ 0 };
+    std::cout << "Elija un movimiento" << std::endl;
+    std::cin >> mov;
+    int dmg{ 0 };
 
-    void realizarMovimiento(Pokemon& oponente, int mov)
+    //TURNOS
+    if (MiPokemon.getVEL() > oponente.getVEL())
     {
-        Movimiento movimiento = (mov == 1) ? movimiento1 : movimiento2;
-        std::cout << nombre << " usó " << movimiento.nombre << "!\n";
-        oponente.salud -= movimiento.danio;
-        if (oponente.salud < 0)
-            oponente.salud = 0;
-        std::cout << oponente.nombre << " tiene " << oponente.salud << " puntos de vida restantes.\n";
+        if (mov == 1)
+        {
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK1() << "!!" << std::endl;
+            if (MiPokemon.getATK1() == "Absorber")
+            {
+                MiPokemon.setDamage(30);
+                oponente.setHP(-30);
+            }
+            else if (MiPokemon.getATK1() == "Hoja Afilada")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Somnifero")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Ascuas")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-40);
+            }
+            else if (MiPokemon.getATK1() == "Garra Dragon")
+            {
+                MiPokemon.setDamage(70);
+                oponente.setHP(-70);
+            }
+        }
+        else if (mov == 2)
+        {
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK2() << "!!" << std::endl;
+
+            if (MiPokemon.getATK1() == "Absorber")
+            {
+                MiPokemon.setDamage(30);
+                oponente.setHP(-30);
+            }
+            else if (MiPokemon.getATK1() == "Hoja Afilada")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Somnifero")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Ascuas")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-40);
+            }
+            else if (MiPokemon.getATK1() == "Garra Dragon")
+            {
+                MiPokemon.setDamage(70);
+                oponente.setHP(-70);
+            }
+        }
+        else if (mov == 3)
+        {
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK3() << "!!" << std::endl;
+
+            if (MiPokemon.getATK1() == "Absorber")
+            {
+                MiPokemon.setDamage(30);
+                oponente.setHP(-30);
+            }
+            else if (MiPokemon.getATK1() == "Hoja Afilada")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Somnifero")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Ascuas")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-40);
+            }
+            else if (MiPokemon.getATK1() == "Garra Dragon")
+            {
+                MiPokemon.setDamage(70);
+                oponente.setHP(-70);
+            }
+        }
+        else if (mov == 4)
+        {
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK4() << "!!" << std::endl;
+
+            if (MiPokemon.getATK1() == "Absorber")
+            {
+                MiPokemon.setDamage(30);
+                oponente.setHP(-30);
+            }
+            else if (MiPokemon.getATK1() == "Hoja Afilada")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Somnifero")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-50);
+            }
+            else if (MiPokemon.getATK1() == "Ascuas")
+            {
+                MiPokemon.setDamage(50);
+                oponente.setHP(-40);
+            }
+            else if (MiPokemon.getATK1() == "Garra Dragon")
+            {
+                MiPokemon.setDamage(70);
+                oponente.setHP(-70);
+            }
+        }
     }
+    else if (oponente.getVEL() > MiPokemon.getVEL())
+    {
+        if (mov == 1)
+        {
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK1() << "!!" << std::endl;
+            if (oponente.getATK1() == "Absorber")
+            {
+                oponente.setDamage(30);
+                MiPokemon.setHP(-30);
+            }
+            else if (oponente.getATK1() == "Hoja Afilada")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK1() == "Somnifero")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK1() == "Ascuas")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-40);
+            }
+            else if (oponente.getATK1() == "Garra Dragon")
+            {
+                oponente.setDamage(70);
+                MiPokemon.setHP(-70);
+            }
+        }
+        else if (mov == 2)
+        {
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK2() << "!!" << std::endl;
+
+            if (oponente.getATK2() == "Absorber")
+            {
+                oponente.setDamage(30);
+                MiPokemon.setHP(-30);
+            }
+            else if (oponente.getATK2() == "Hoja Afilada")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK2() == "Somnifero")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK2() == "Ascuas")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-40);
+            }
+            else if (oponente.getATK2() == "Garra Dragon")
+            {
+                oponente.setDamage(70);
+                MiPokemon.setHP(-70);
+            }
+        }
+        else if (mov == 3)
+        {
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK3() << "!!" << std::endl;
+
+            if (oponente.getATK3() == "Absorber")
+            {
+                oponente.setDamage(30);
+                MiPokemon.setHP(-30);
+            }
+            else if (oponente.getATK3() == "Hoja Afilada")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK3() == "Somnifero")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK3() == "Ascuas")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-40);
+            }
+            else if (oponente.getATK3() == "Garra Dragon")
+            {
+                oponente.setDamage(70);
+                MiPokemon.setHP(-70);
+            }
+        }
+        else if (mov == 4)
+        {
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK4() << "!!" << std::endl;
+
+            if (oponente.getATK4() == "Absorber")
+            {
+                oponente.setDamage(30);
+                MiPokemon.setHP(-30);
+            }
+            else if (oponente.getATK4() == "Hoja Afilada")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK4() == "Somnifero")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-50);
+            }
+            else if (oponente.getATK4() == "Ascuas")
+            {
+                oponente.setDamage(50);
+                MiPokemon.setHP(-40);
+            }
+            else if (oponente.getATK4() == "Garra Dragon")
+            {
+                oponente.setDamage(70);
+                MiPokemon.setHP(-70);
+            }
+        }
+    }
+
+    
 };
 
-int seleccionMovimiento() {
-    int seleccion;
-    while (true) {
-        std::cin >> seleccion;
-        if (seleccion =! 1 && 2)
-            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
-        }
-        else if (seleccion == 1 || seleccion == 2) {
-            return seleccion;
-        }
-        else {
-            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
-        }
+void Combate::Seleccion_Accion(Pokemon& MiPoke,Pokemon& PokeOponente)
+{
+    int opcion{ 0 }, opcion2{ 0 };
+
+    std::cout << "Escoja una opcion:\n1.Luchar\n2.Mochila\n3.Pokemon\n4.Huir" << std::endl;
+    std::cin >> opcion;
+
+    if (opcion == 1)
+    {
+        std::cout << "1." << MiPoke.getATK1() << "\n";
+        std::cout << "2." << MiPoke.getATK2() << "\n";
+        std::cout << "3." << MiPoke.getATK3() << "\n";
+        std::cout << "4." << MiPoke.getATK4() << "\n";
+
+        Combate::RealizarMovimiento(MiPoke, PokeOponente);
+
+
     }
-}
+    else if (opcion == 2)
+    {
+        std::cout << "por ahora no disponible\n";
+    }
+    else if (opcion == 3)
+    {
 
-int main() {
-    Movimiento descarga("Descarga", 20);
-    Movimiento impactrueno("Impactrueno", 10);
-    Movimiento latigoCepa("Látigo Cepa", 20);
-    Movimiento placaje("Placaje", 10);
+    }
+    else if (opcion == 4)
+    {
 
-    Pokemon pikachu("Pikachu", 100, 25, descarga, impactrueno);
-    Pokemon bulbasaur("Bulbasaur", 110, 20, latigoCepa, placaje);
-
-    while (pikachu.salud > 0 && bulbasaur.salud > 0) {
-        std::cout << "Elija un movimiento para Pikachu (1 - Descarga, 2 - Impactrueno): ";
-        pikachu.realizarMovimiento(bulbasaur, seleccionMovimiento());
-        if (bulbasaur.salud > 0) {
-            std::cout << "Elija un movimiento para Bulbasaur (1 - Látigo Cepa, 2 - Placaje): ";
-            bulbasaur.realizarMovimiento(pikachu, seleccionMovimiento());
-        }
     }
 
-    if (pikachu.salud == 0)
-        std::cout << pikachu.nombre << " se ha debilitado!\n";
-    else if (bulbasaur.salud == 0)
-        std::cout << bulbasaur.nombre << " se ha debilitado!\n";
+};
 
-    return 0;
-}

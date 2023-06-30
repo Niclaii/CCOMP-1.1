@@ -1,50 +1,88 @@
 #include <iostream>
 #include <string>
-
-class Move {
+#include "cPokemon.h"
+/*
+class Movimiento {
 public:
-    std::string name;
-    int damage;
+    std::string nombre;
+    int danio;
 
-    Move(std::string name, int damage) : name(name), damage(damage) {}
+    Movimiento(std::string nombre, int danio) : nombre(nombre), danio(danio) {}
 };
-
+*/
+/*
 class Pokemon {
 public:
-    std::string name;
-    int health;
-    int attack;
-    Move move;
+    std::string nombre;
+    int salud;
+    int ataque;
+    Movimiento movimiento1;
+    Movimiento movimiento2;
 
-    Pokemon(std::string name, int health, int attack, Move move)
-        : name(name), health(health), attack(attack), move(move) {}
+    Pokemon(std::string nombre, int salud, int ataque, Movimiento movimiento1, Movimiento movimiento2)
+        : nombre(nombre), salud(salud), ataque(ataque), movimiento1(movimiento1), movimiento2(movimiento2) {}
 
-    void performMove(Pokemon& opponent) {
-        std::cout << name << " usó " << move.name << "!\n";
-        opponent.health -= move.damage;
-        if (opponent.health < 0)
-            opponent.health = 0;
-        std::cout << opponent.name << " tiene " << opponent.health << " HP restantes.\n";
+    void realizarMovimiento(Pokemon& oponente, int mov)
+    {
+        Movimiento movimiento = (mov == 1) ? movimiento1 : movimiento2;
+        std::cout << nombre << " usó " << movimiento.nombre << "!\n";
+        oponente.salud -= movimiento.danio;
+        if (oponente.salud < 0)
+            oponente.salud = 0;
+        std::cout << oponente.nombre << " tiene " << oponente.salud << " puntos de vida restantes.\n";
     }
 };
-
+*/
+/*
+int seleccionMovimiento()
+{
+    int seleccion;
+    while (true)
+    {
+        std::cin >> seleccion;
+        if (seleccion =! 1 && 2)
+        {
+            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
+        }
+        else if (seleccion == 1 || seleccion == 2)
+        {
+            return seleccion;
+        }
+        else
+        {
+            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
+        }
+    }
+}*/
+/*
 int main() {
-    Move thunderShock("Thunder Shock", 25);
-    Move vineWhip("Vine Whip", 20);
+    Movimiento descarga("Descarga", 20);
+    Movimiento impactrueno("Impactrueno", 10);
+    Movimiento latigoCepa("Látigo Cepa", 20);
+    Movimiento placaje("Placaje", 10);
 
-    Pokemon pikachu("Pikachu", 100, 25, thunderShock);
-    Pokemon bulbasaur("Bulbasaur", 110, 20, vineWhip);
+    Pokemon pikachu("Pikachu", 100, 25, descarga, impactrueno);
+    Pokemon bulbasaur("Bulbasaur", 110, 20, latigoCepa, placaje);
 
-    while (pikachu.health > 0 && bulbasaur.health > 0) {
-        pikachu.performMove(bulbasaur);
-        if (bulbasaur.health > 0)
-            bulbasaur.performMove(pikachu);
+    while (pikachu.salud > 0 && bulbasaur.salud > 0)
+    {
+        std::cout << "Elija un movimiento para Pikachu (1 - Descarga, 2 - Impactrueno): ";
+        pikachu.realizarMovimiento(bulbasaur, seleccionMovimiento());
+        if (bulbasaur.salud > 0)
+        {
+            std::cout << "Elija un movimiento para Bulbasaur (1 - Látigo Cepa, 2 - Placaje): ";
+            bulbasaur.realizarMovimiento(pikachu, seleccionMovimiento());
+        }
     }
 
-    if (pikachu.health == 0)
-        std::cout << pikachu.name << " se ha debilitado!\n";
-    else if (bulbasaur.health == 0)
-        std::cout << bulbasaur.name << " se ha debilitado!\n";
-
+    if (pikachu.salud == 0)
+    {
+        std::cout << pikachu.nombre << " se ha debilitado!\n";
+    }
+    else if (bulbasaur.salud == 0)
+    {
+        std::cout << bulbasaur.nombre << " se ha debilitado!\n";
+    }
     return 0;
 }
+*/
