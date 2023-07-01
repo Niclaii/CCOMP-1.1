@@ -25,7 +25,7 @@ public:
     void realizarMovimiento(Pokemon& oponente, int mov)
     {
         Movimiento movimiento = (mov == 1) ? movimiento1 : movimiento2;
-        std::cout << nombre << " usÃ³ " << movimiento.nombre << "!\n";
+        std::cout << nombre << " usó " << movimiento.nombre << "!\n";
         oponente.salud -= movimiento.danio;
         if (oponente.salud < 0)
             oponente.salud = 0;
@@ -42,7 +42,7 @@ int seleccionMovimiento()
         std::cin >> seleccion;
         if (seleccion =! 1 && 2)
         {
-            std::cout << "Por favor, elija un movimiento vÃ¡lido (1 o 2): ";
+            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
         }
         else if (seleccion == 1 || seleccion == 2)
         {
@@ -50,7 +50,7 @@ int seleccionMovimiento()
         }
         else
         {
-            std::cout << "Por favor, elija un movimiento vÃ¡lido (1 o 2): ";
+            std::cout << "Por favor, elija un movimiento válido (1 o 2): ";
         }
     }
 }*/
@@ -58,7 +58,7 @@ int seleccionMovimiento()
 int main() {
     Movimiento descarga("Descarga", 20);
     Movimiento impactrueno("Impactrueno", 10);
-    Movimiento latigoCepa("LÃ¡tigo Cepa", 20);
+    Movimiento latigoCepa("Látigo Cepa", 20);
     Movimiento placaje("Placaje", 10);
 
     Pokemon pikachu("Pikachu", 100, 25, descarga, impactrueno);
@@ -70,7 +70,7 @@ int main() {
         pikachu.realizarMovimiento(bulbasaur, seleccionMovimiento());
         if (bulbasaur.salud > 0)
         {
-            std::cout << "Elija un movimiento para Bulbasaur (1 - LÃ¡tigo Cepa, 2 - Placaje): ";
+            std::cout << "Elija un movimiento para Bulbasaur (1 - Látigo Cepa, 2 - Placaje): ";
             bulbasaur.realizarMovimiento(pikachu, seleccionMovimiento());
         }
     }

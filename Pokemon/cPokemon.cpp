@@ -262,5 +262,3 @@ void Pokemon::AsignarAtaques(int num)
 		setATK4("Triturar");
 	}
 }
-
-

@@ -1,11 +1,15 @@
 #include <iostream>
 #include "cCombate.h"
-#include "Sprites.h"
-#include "cPantalla.h"
+//#include "cPantalla.h"
+#include <cstdlib>
+#include <ctime>
+
+
 
 void Combate::CambiarPoke(Pokemon, Pokemon)
 {
-
+    Jugador player;
+    if(player.)
 
 
 };
@@ -14,16 +18,25 @@ void Combate::CambiarPoke(Pokemon, Pokemon)
 void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
 {
     int mov{ 0 };
+    std::srand(std::time(0));
+    int random1 = std::rand() % 4 + 1;
+    //semilla del random
+
+
     std::cout << "Elija un movimiento" << std::endl;
     std::cin >> mov;
     int dmg{ 0 };
+
+
+
+
 
     //TURNOS
     if (MiPokemon.getVEL() > oponente.getVEL())
     {
         if (mov == 1)
         {
-            std::cout << MiPokemon.getNombre() << "usÃ³ " << MiPokemon.getATK1() << "!!" << std::endl;
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK1() << "!!" << std::endl;
             if (MiPokemon.getATK1() == "Absorber")
             {
                 MiPokemon.setDamage(30);
@@ -52,7 +65,7 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
         }
         else if (mov == 2)
         {
-            std::cout << MiPokemon.getNombre() << "usÃ³ " << MiPokemon.getATK2() << "!!" << std::endl;
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK2() << "!!" << std::endl;
 
             if (MiPokemon.getATK1() == "Absorber")
             {
@@ -82,7 +95,7 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
         }
         else if (mov == 3)
         {
-            std::cout << MiPokemon.getNombre() << "usÃ³ " << MiPokemon.getATK3() << "!!" << std::endl;
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK3() << "!!" << std::endl;
 
             if (MiPokemon.getATK1() == "Absorber")
             {
@@ -112,7 +125,7 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
         }
         else if (mov == 4)
         {
-            std::cout << MiPokemon.getNombre() << "usÃ³ " << MiPokemon.getATK4() << "!!" << std::endl;
+            std::cout << MiPokemon.getNombre() << "usó " << MiPokemon.getATK4() << "!!" << std::endl;
 
             if (MiPokemon.getATK1() == "Absorber")
             {
@@ -143,9 +156,9 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
     }
     else if (oponente.getVEL() > MiPokemon.getVEL())
     {
-        if (mov == 1)
+        if (random1 == 1)
         {
-            std::cout << oponente.getNombre() << "usÃ³ " << oponente.getATK1() << "!!" << std::endl;
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK1() << "!!" << std::endl;
             if (oponente.getATK1() == "Absorber")
             {
                 oponente.setDamage(30);
@@ -172,9 +185,9 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
                 MiPokemon.setHP(-70);
             }
         }
-        else if (mov == 2)
+        else if (random1 == 2)
         {
-            std::cout << oponente.getNombre() << "usÃ³ " << oponente.getATK2() << "!!" << std::endl;
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK2() << "!!" << std::endl;
 
             if (oponente.getATK2() == "Absorber")
             {
@@ -202,9 +215,9 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
                 MiPokemon.setHP(-70);
             }
         }
-        else if (mov == 3)
+        else if (random1 == 3)
         {
-            std::cout << oponente.getNombre() << "usÃ³ " << oponente.getATK3() << "!!" << std::endl;
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK3() << "!!" << std::endl;
 
             if (oponente.getATK3() == "Absorber")
             {
@@ -232,9 +245,9 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
                 MiPokemon.setHP(-70);
             }
         }
-        else if (mov == 4)
+        else if (random1 == 4)
         {
-            std::cout << oponente.getNombre() << "usÃ³ " << oponente.getATK4() << "!!" << std::endl;
+            std::cout << oponente.getNombre() << "usó " << oponente.getATK4() << "!!" << std::endl;
 
             if (oponente.getATK4() == "Absorber")
             {
@@ -264,10 +277,10 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
         }
     }
 
-    
+
 };
 
-void Combate::Seleccion_Accion(Pokemon& MiPoke,Pokemon& PokeOponente)
+void Combate::Seleccion_Accion(Pokemon& MiPoke, Pokemon& PokeOponente)
 {
     int opcion{ 0 }, opcion2{ 0 };
 
@@ -299,4 +312,3 @@ void Combate::Seleccion_Accion(Pokemon& MiPoke,Pokemon& PokeOponente)
     }
 
 };
-

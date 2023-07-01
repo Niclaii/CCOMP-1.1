@@ -1,7 +1,10 @@
 #pragma once
 #include "cJugador.h"
+#include "cNPC.h"
+#include "cPokedex.h"
+#include "cPokemon.h"
 
-#define MAP_SIZE 10
+#define MAP_SIZE 15
 
 
 class Pantalla
@@ -9,17 +12,17 @@ class Pantalla
 	private:
 
 		int fila, columna;
-
+		char tablero[MAP_SIZE][MAP_SIZE];
 
 	public:
         Jugador jugador;
+		NPC npc;
         const int  MAP_SiZE = 10;
 
 		Pantalla()
 		{
-
-			fila = 179;
-			columna = 30;
+			npc.setNPC_x(rand() % MAP_SiZE);
+			npc.setNPC_y(rand() % MAP_SiZE);
 		};
         
 
@@ -32,9 +35,11 @@ class Pantalla
 		int getColumna();
 
 
-
 		//METODOS----------------------------------------------------
         void Mapeado();
 		void handleInput();
-        
+		void MenuInGame();
+		void MostrarPokedex(Pokedex,Pokemon*,std::string);
+		void InicializadorDeVariables();
+		void Juego();
 };

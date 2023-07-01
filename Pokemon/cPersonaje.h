@@ -5,38 +5,36 @@
 
 class Personaje
 {
-	private:
-		std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
+private:
+	std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
 
-		Pokemon *EquipoPokemon;
+	Pokemon** EquipoPokemon = new Pokemon * [6];
 
 
-	public:
+public:
 
-		Personaje()
-		{
+	Personaje()
+	{
 
-			Sprite_Mundo;
-			Sprite_Combate;
-			NombrePersonaje;
-			EquipoPokemon =  new Pokemon[];
+		Sprite_Mundo;
+		Sprite_Combate;
+		NombrePersonaje;
+	};
 
-		};
+	void setSpriteMundo();
+	std::string getSpriteMundo();
 
-		void setSpriteMundo();
-		std::string getSpriteMundo();
+	void setSpriteCombate();
+	std::string getSpriteCombate();
 
-		void setSpriteCombate();
-		std::string getSpriteCombate();
+	void setNombrePersonaje();
+	std::string getNombrePersonaje();
 
-		void setNombrePersonaje();
-		std::string getNombrePersonaje();
+	void Dialogo_Interaccion();
 
-		void Dialogo_Interaccion();
+	void Asignar_Sprite(std::string, std::string);
 
-		void Asignar_Sprite(std::string, std::string);
-
-		void Asignar_EquipoPokemon(Pokemon);
+	void Asignar_EquipoPokemon(Pokemon* , Pokemon* , Pokemon* , Pokemon* , Pokemon* , Pokemon* );
 
 
 };

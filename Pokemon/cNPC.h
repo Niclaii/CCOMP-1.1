@@ -8,49 +8,37 @@ class NPC :public Personaje
 {
 	private:
 	
-		Pokemon Pokemon1, Pokemon2, Pokemon3, Pokemon4, Pokemon5, Pokemon6;
+		int NPC_X, NPC_Y;
+		std::string Interaccion;
+		Pokemon** EquipoPokemonNPC = new Pokemon * [6];
 		std::string Sprite_MundoNPC, Sprite_CombateNPC,Nombre;
-
-
 
 	public:
 
 		NPC()
 		{
-			Pokemon1;
-			Pokemon2;
-			Pokemon3;
-			Pokemon4;
-			Pokemon5;
-			Pokemon6;
+			NPC_X = 0;
+			NPC_Y = 0;
+			Interaccion = "Saludos, jugador.";
 			Sprite_CombateNPC;
 			Sprite_MundoNPC;
 
 		};
 
-		void setPokemon1(Pokemon);
-		Pokemon getPokemon1();
+		void setNPC_x(int);
+		int getNPC_x();
 
-		void setPokemon2(Pokemon);
-		Pokemon getPokemon2();
+		void setNPC_y(int);
+		int getNPC_y();
 
-		void setPokemon3(Pokemon);
-		Pokemon getPokemon3();
-
-		void setPokemon4(Pokemon);
-		Pokemon getPokemon4();
-
-		void setPokemon5(Pokemon);
-		Pokemon getPokemon5();
-
-		void setPokemon6(Pokemon);
-		Pokemon getPokemon6();
+		void Asignar_EquipoPokemon(Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*);
+		
+		std::string getInteraccion();
 
 		void Asignar_Sprite(std::string, std::string);
 
 		void Asignar_Nombre(std::string);
 
 		void Equipo_PokemonNPC();
-
 
 };

@@ -8,9 +8,9 @@ class Pokemon
 private:
 
 	int Stats[6];
-	int	Nivel,Damage;
+	int	Nivel, Damage;
 	std::string Tipo, Nombre, Ataque1, Ataque2, Ataque3, Ataque4;
-	
+
 public:
 	// CONSTRUCTOR ---------------------------------------------------------------------------------------------------------------------
 	Pokemon()
@@ -30,7 +30,7 @@ public:
 		Ataque4 = " ";
 	}
 	//DESTRUCTOR
-	~Pokemon() 
+	~Pokemon()
 	{
 	}
 
@@ -79,15 +79,12 @@ public:
 	// ---------------------------------------------------------------------------------------------------------------- 
 	// METODOS DE LA CLASE ----------------------------------------------------------------------------------------------
 
-	void RegistarPoke(int,int , std::string, std::string);
+	void RegistarPoke(int, int, std::string, std::string);
 
 	void IngresarStats();
 
-	void MostrarStats(Pokemon);
+	void MostrarStats(Pokemon poke);
 
 	void AsignarAtaques(int);
-
-	
-
 
 };

@@ -5,40 +5,40 @@
 
 class Pokedex
 {
-	private:
-	
-		std::string Huella, Descripcion,Tipo,Nombre;
-		int nPokedex;
+private:
 
-	public:
-		Pokedex() 
-		{
-			Huella = " ";
-			Descripcion = " ";
-			Tipo = " ";
-			Nombre = " ";
-			nPokedex = 0;
+	std::string Huella, Descripcion, Tipo, Nombre;
+	int nPokedex;
 
-		};
+public:
+	Pokedex()
+	{
+		Huella = " ";
+		Descripcion = " ";
+		Tipo = " ";
+		Nombre = " ";
+		nPokedex = 0;
 
-		int getnPokedex();
-		void setnPokedex(int);
+	};
 
-		std::string getTipo();
-		void setTipo(std::string);
+	int getnPokedex();
+	void setnPokedex(int);
 
-		std::string getHuella();
-		void setHuella(std::string);
+	std::string getTipo();
+	void setTipo(std::string);
 
-		std::string getDescripcion();
-		void setDescripcion(std::string);
+	std::string getHuella();
+	void setHuella(std::string);
 
-		std::string getNombre();
-		void setNombre(std::string);
+	std::string getDescripcion();
+	void setDescripcion(std::string);
 
-		void RegistrarPokedex(int , std::string , std::string, std::string, std::string);
-			
-		void MostrarPoke(Pokemon*,std::string);
+	std::string getNombre();
+	void setNombre(std::string);
+
+	void RegistrarPokedex(int, std::string, std::string, std::string, std::string);
+
+	void MostrarPoke(Pokemon*, std::string);
 
 
 

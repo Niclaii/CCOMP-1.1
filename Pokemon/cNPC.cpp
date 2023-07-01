@@ -1,60 +1,30 @@
 #include <iostream>
 #include "cNPC.h"
 
-void NPC::setPokemon1(Pokemon poke)
+void NPC::setNPC_x(int x)
 {
-	Pokemon1 = poke;
-};
-Pokemon NPC::getPokemon1()
-{
-	return Pokemon1;
-};
+	NPC_X = x;
+}
 
-void NPC::setPokemon2(Pokemon poke)
+int NPC::getNPC_x()
 {
-	Pokemon2 = poke;
-};
-Pokemon NPC::getPokemon2()
-{
-	return Pokemon2;
-};
+	return NPC_X;
+}
 
-void NPC::setPokemon3(Pokemon poke)
+void NPC::setNPC_y(int y)
 {
-	Pokemon3 = poke;
-};
-Pokemon NPC::getPokemon3()
-{
-	return Pokemon3;
-};
+	NPC_Y = y;
+}
 
-void NPC::setPokemon4(Pokemon poke)
+int NPC::getNPC_y()
 {
-	Pokemon4 = poke;
-};
-Pokemon NPC::getPokemon4()
-{
-	return Pokemon4;
-};
+	return NPC_Y;
+}
 
-void NPC::setPokemon5(Pokemon poke)
+std::string NPC::getInteraccion()
 {
-	Pokemon5 = poke;
-};
-Pokemon NPC::getPokemon5()
-{
-	return Pokemon5;
-};
-
-void NPC::setPokemon6(Pokemon poke)
-{
-	Pokemon6 = poke;
-};
-Pokemon NPC::getPokemon6()
-{
-	return Pokemon6;
-};
-
+	return Interaccion;
+}
 
 void NPC::Asignar_Sprite(std::string spriteMundo, std::string spriteCombate) {
 	Sprite_MundoNPC = spriteMundo;
@@ -69,3 +39,16 @@ void NPC::Equipo_PokemonNPC() { // eq pk
 
 }
 
+void NPC::Asignar_EquipoPokemon(Pokemon* poke1, Pokemon* poke2, Pokemon* poke3, Pokemon* poke4, Pokemon* poke5, Pokemon* poke6)
+{
+    for (int i = 0; i < 6; ++i)
+    {
+        EquipoPokemonNPC[i] = new Pokemon();
+    }
+    EquipoPokemonNPC[0] = poke1;
+    EquipoPokemonNPC[1] = poke2;
+    EquipoPokemonNPC[2] = poke3;
+    EquipoPokemonNPC[3] = poke4;
+    EquipoPokemonNPC[4] = poke5;
+    EquipoPokemonNPC[5] = poke6;
+};

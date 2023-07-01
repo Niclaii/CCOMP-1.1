@@ -1,58 +1,18 @@
 #include <iostream>
 #include "cJugador.h"
 
-void Jugador::setPokemon1(Pokemon poke)
+void Jugador::Asignar_EquipoPokemon(Pokemon* poke1, Pokemon* poke2, Pokemon* poke3, Pokemon* poke4, Pokemon* poke5, Pokemon* poke6)
 {
-	Pokemon1 = poke;
-};
-Pokemon Jugador::getPokemon1()
-{
-	return Pokemon1;
-};
-
-void Jugador::setPokemon2(Pokemon poke)
-{
-	Pokemon2 = poke;
-};
-Pokemon Jugador::getPokemon2()
-{
-	return Pokemon2;
-};
-
-void Jugador::setPokemon3(Pokemon poke)
-{
-	Pokemon3 = poke;
-};
-Pokemon Jugador::getPokemon3()
-{
-	return Pokemon3;
-};
-
-void Jugador::setPokemon4(Pokemon poke)
-{
-	Pokemon4 = poke;
-};
-Pokemon Jugador::getPokemon4()
-{
-	return Pokemon4;
-};
-
-void Jugador::setPokemon5(Pokemon poke)
-{
-	Pokemon5 = poke;
-};
-Pokemon Jugador::getPokemon5()
-{
-	return Pokemon5;
-};
-
-void Jugador::setPokemon6(Pokemon poke)
-{
-	Pokemon6 = poke;
-};
-Pokemon Jugador::getPokemon6()
-{
-	return Pokemon6;
+    for (int i = 0; i < 6; ++i)
+    {
+        EquipoPokemonJugador[i] = new Pokemon();
+    }
+    EquipoPokemonJugador[0] = poke1;
+    EquipoPokemonJugador[1] = poke2;
+    EquipoPokemonJugador[2] = poke3;
+    EquipoPokemonJugador[3] = poke4;
+    EquipoPokemonJugador[4] = poke5;
+    EquipoPokemonJugador[5] = poke6;
 };
 
 void Jugador::setJugador_x(int x)
@@ -112,20 +72,7 @@ void Jugador::Moverse(char direccion, int MAP_SIZE)
     }
 }
 
-void Jugador::InteraccionA() { //falta
+void Jugador::InteraccionA() 
+{ 
 
 }
-
-void Jugador::Equipo_Pokemon() {  //falta
-
-}
-
-
-
-
-
-
-
-
-
-

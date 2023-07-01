@@ -1,19 +1,21 @@
 #pragma once
 #include <iostream>
 #include "cPokemon.h"
+#include "cJugador.h"
+#include "cNPC.h"
 
-class Combate 
+class Combate
 {
-	public:
+public:
 
-        void Seleccion_Accion(Pokemon&,Pokemon&);
-        
-        void BarrasDeVida(Pokemon&, Pokemon&);
+    void Seleccion_Accion(Pokemon&, Pokemon&);
 
-        void RealizarMovimiento(Pokemon&, Pokemon&);
+    void BarrasDeVida(Pokemon&, Pokemon&);
 
-        void CambiarPoke(Pokemon ,Pokemon);
+    void RealizarMovimiento(Pokemon&, Pokemon&);
 
-        void RealizarMovimientoCPU();
+    void CambiarPoke(Pokemon, Pokemon);
+
+    void RealizarMovimientoCPU();
 
 };
