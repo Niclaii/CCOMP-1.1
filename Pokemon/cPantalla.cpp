@@ -66,7 +66,7 @@ void Pantalla::Juego()
     Charmeleonptr = new Pokemon;
     Charizardptr = new Pokemon;
 
-
+                                                                                                        //CREAR UNA BASE DE DATOS DE LOS POKEMONS Y OBJETOS
     (*Bulbasaurptr).RegistarPoke(1, 5, "Planta", "Bulbasaur");
     (*Ivysaurptr).RegistarPoke(2, 16, "Planta", "Ivysaur");
     (*Venusaurptr).RegistarPoke(3, 36, "Planta/Veneno", "Venusaur");
@@ -135,7 +135,6 @@ void Pantalla::Juego()
                                 {
                                     break;
                                 }
-                                break;
                             }
                             break;
                         }

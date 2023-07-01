@@ -5,7 +5,7 @@
 
 class Personaje
 {
-private:
+protected:
 	std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
 
 	Pokemon** EquipoPokemon = new Pokemon * [6];

@@ -9,7 +9,7 @@
 void Combate::CambiarPoke(Pokemon, Pokemon)
 {
     Jugador player;
-    if(player.)
+    //if(player.)
 
 
 };
