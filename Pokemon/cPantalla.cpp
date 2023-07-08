@@ -2,7 +2,6 @@
 #include "cPantalla.h"
 #include "Descripcion.h"
 
-
 void Pantalla::setFila(int Fila)
 {
     fila = Fila;
@@ -20,6 +19,8 @@ int Pantalla::getColumna()
 {
     return columna;
 };
+
+
 
 void Pantalla::Mapeado()
 {
@@ -45,9 +46,9 @@ void Pantalla::Mapeado()
     }
 }
 
-void Pantalla::MostrarPokedex(Pokedex Pokedex01,Pokemon*Poke,std::string Descripcion)
+void Pantalla::MostrarPokedex(Pokemon*Poke,std::string Descripcion)
 {
-    Pokedex01.MostrarPoke(Poke, Descripcion);
+    Poke->MostrarPkmPokedex(Poke, Descripcion);
     std::cout << "\n";
         
 }
@@ -55,7 +56,10 @@ void Pantalla::MostrarPokedex(Pokedex Pokedex01,Pokemon*Poke,std::string Descrip
 void Pantalla::Juego()
 {
     bool Fin = false;
-    int Opcion{ 0 };
+    int Opcion{ 0 }, num{ 0 };
+    Objeto Objetos;
+    Jugador Jugador1;
+    NPC Bot1;
     Pokedex Pokedex01;
     Pokemon Bulbasaur, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard;
     Pokemon* Bulbasaurptr, * Ivysaurptr, * Venusaurptr, * Charmanderptr, * Charmeleonptr, * Charizardptr;
@@ -66,7 +70,7 @@ void Pantalla::Juego()
     Charmeleonptr = new Pokemon;
     Charizardptr = new Pokemon;
 
-                                                                                                        //CREAR UNA BASE DE DATOS DE LOS POKEMONS Y OBJETOS
+
     (*Bulbasaurptr).RegistarPoke(1, 5, "Planta", "Bulbasaur");
     (*Ivysaurptr).RegistarPoke(2, 16, "Planta", "Ivysaur");
     (*Venusaurptr).RegistarPoke(3, 36, "Planta/Veneno", "Venusaur");
@@ -109,47 +113,98 @@ void Pantalla::Juego()
 
                                 if (num == 1)
                                 {
-                                    MostrarPokedex(Pokedex01, Bulbasaurptr, DBulbasaur);
+                                    MostrarPokedex(Bulbasaurptr, DBulbasaur);
                                 }
                                 else if (num == 2)
                                 {
-                                    MostrarPokedex(Pokedex01, Ivysaurptr, DIvysaur);
+                                    MostrarPokedex( Ivysaurptr, DIvysaur);
                                 }
                                 else if (num == 3)
                                 {
-                                    MostrarPokedex(Pokedex01, Venusaurptr, DVenusaur);
+                                    MostrarPokedex(Venusaurptr, DVenusaur);
                                 }
                                 else if (num == 4)
                                 {
-                                    MostrarPokedex(Pokedex01, Charmanderptr, DCharmander);
+                                    MostrarPokedex(Charmanderptr, DCharmander);
                                 }
                                 else if (num == 5)
                                 {
-                                    MostrarPokedex(Pokedex01, Charmeleonptr, DCharmeleon);
+                                    MostrarPokedex(Charmeleonptr, DCharmeleon);
                                 }
                                 else if (num == 6)
                                 {
-                                    MostrarPokedex(Pokedex01, Charizardptr, DCharizard);
+                                    MostrarPokedex( Charizardptr, DCharizard);
                                 }
                                 else if (num == 7)
                                 {
                                     break;
                                 }
+                                break;
                             }
                             break;
                         }
                         else if (opcion == 2)
                         {
-                            std::cout << "Aqui van los pokes del jugador\n";
-
-
-
+                            std::cout << "Elige un pokemon\n1.";
+                            if (num == 1)
+                            {
+                                Jugador1.getEquipoPokemon(0);
+                                
+                            }
+                            else if (num==2)
+                            {
+                                Jugador1.getEquipoPokemon(1);
+                            }
+                            else if (num == 3)
+                            {
+                                Jugador1.getEquipoPokemon(2);
+                            }
+                            else if (num == 4)
+                            {
+                                Jugador1.getEquipoPokemon(3);
+                            }
+                            else if (num == 5)
+                            {
+                                Jugador1.getEquipoPokemon(4);
+                            }
+                            else if (num == 6)
+                            {
+                                Jugador1.getEquipoPokemon(5);
+                            }
 
                             break;
                         }
                         else if (opcion == 3)
                         {
-                            std::cout << "Aqui van los objetos\n";
+                            int opcion2{ 0 };
+                            std::cout << "Elige un Objeto\n";
+                            std::cin >> opcion2;
+                            Objetos.asignarObjeto(5);
+                            Objetos.visualizarObjetos();
+                            if (opcion2 == 0)
+                            {
+                                Objetos.manipularObjeto(0, -1);
+                            }
+                            else if (opcion2 == 1)
+                            {
+                                Objetos.manipularObjeto(1, -1);
+                            }
+                            else if (opcion2 == 2)
+                            {
+                                Objetos.manipularObjeto(2, -1);
+                            }
+                            else if (opcion2 == 3)
+                            {
+                                Objetos.manipularObjeto(3, -1);
+                            }
+                            else if (opcion2 == 4)
+                            {
+                                Objetos.manipularObjeto(4, -1);
+                            }
+                            else if (opcion2 == 5)
+                            {
+                                Objetos.manipularObjeto(5, -1);
+                            }
                             break;
                         }
                         else if (opcion == 4)

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "cPersonaje.h"
-#include "cPokemon.h"
+//#include "cPokemon.h"
 
 
 class NPC :public Personaje

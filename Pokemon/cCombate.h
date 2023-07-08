@@ -3,18 +3,19 @@
 #include "cPokemon.h"
 #include "cJugador.h"
 #include "cNPC.h"
+#include "cObjetos.h"
 
 class Combate
 {
 public:
 
-    void Seleccion_Accion(Pokemon&, Pokemon&);
+    void Seleccion_Accion(Jugador&,Pokemon&);
 
-    void BarrasDeVida(Pokemon&, Pokemon&);
+    void BarrasDeVida(Jugador&,Pokemon&);
 
-    void RealizarMovimiento(Pokemon&, Pokemon&);
+    void RealizarMovimiento(Jugador&, Pokemon&);
 
-    void CambiarPoke(Pokemon, Pokemon);
+    void CambiarPoke(Jugador&, Pokemon);
 
     void RealizarMovimientoCPU();
 

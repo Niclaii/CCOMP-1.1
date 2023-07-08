@@ -1,22 +1,12 @@
 #include <iostream>
 #include "cCombate.h"
-//#include "cPantalla.h"
 #include <cstdlib>
 #include <ctime>
 
 
-
-void Combate::CambiarPoke(Pokemon, Pokemon)
+void Combate::RealizarMovimiento(Jugador& player, Pokemon& oponente)
 {
-    Jugador player;
-    //if(player.)
-
-
-};
-
-
-void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
-{
+    Pokemon MiPokemon = player.getEquipoPokemon(0);
     int mov{ 0 };
     std::srand(std::time(0));
     int random1 = std::rand() % 4 + 1;
@@ -280,8 +270,10 @@ void Combate::RealizarMovimiento(Pokemon& MiPokemon, Pokemon& oponente)
 
 };
 
-void Combate::Seleccion_Accion(Pokemon& MiPoke, Pokemon& PokeOponente)
+void Combate::Seleccion_Accion(Jugador& player,Pokemon& PokeOponente)
 {
+    Pokemon MiPoke = player.getEquipoPokemon(0);
+
     int opcion{ 0 }, opcion2{ 0 };
 
     std::cout << "Escoja una opcion:\n1.Luchar\n2.Mochila\n3.Pokemon\n4.Huir" << std::endl;
@@ -294,21 +286,43 @@ void Combate::Seleccion_Accion(Pokemon& MiPoke, Pokemon& PokeOponente)
         std::cout << "3." << MiPoke.getATK3() << "\n";
         std::cout << "4." << MiPoke.getATK4() << "\n";
 
-        Combate::RealizarMovimiento(MiPoke, PokeOponente);
+        Combate::RealizarMovimiento(player, PokeOponente);
 
 
     }
     else if (opcion == 2)
     {
+        Objeto bolsa;
+        int OpcionBolsa{ 0 };
+
         std::cout << "por ahora no disponible\n";
+
+        bolsa.asignarObjeto();
+        bolsa.visualizarObjetos();
+        std::cin >> OpcionBolsa;
+        bolsa.manipularObjeto(OpcionBolsa);
+
+        if (OpcionBolsa == 1)
+        {
+            MiPoke.setHP(MiPoke.getHP()+20);
+        }
+        else if (OpcionBolsa == 2)
+        {
+            MiPoke.setHP(MiPoke.getHP() + 50);
+        }
+        else
+        {
+            std::cout << "falta implementar\n";
+        }
     }
     else if (opcion == 3)
     {
-
+        Jugador player;
+        player.MostrarEquipo();
     }
     else if (opcion == 4)
     {
-
+        std::cout << "No puedes huir de un combate contra un entrenador\n";
     }
 
 };

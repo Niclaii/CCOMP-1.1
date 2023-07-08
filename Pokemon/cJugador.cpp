@@ -71,8 +71,49 @@ void Jugador::Moverse(char direccion, int MAP_SIZE)
         }
     }
 }
-
+/*
 void Jugador::InteraccionA() 
 { 
+
+}
+*/
+Pokemon Jugador::getEquipoPokemon(int num)
+{
+    Pokemon* poke = EquipoPokemonJugador[num];
+    return (*poke);
+}
+void Jugador::MostrarEquipo()
+{
+    std::cout << "1." << EquipoPokemonJugador[0] << "2." << EquipoPokemonJugador[1] << "3." << EquipoPokemonJugador[2]
+        << "4." << EquipoPokemonJugador[3] << "5." << EquipoPokemonJugador[5] << "6." << EquipoPokemonJugador[5] <<
+        std::cout << "Que desea hacer?\n1.Visualizar Pokemon\n2.Mover Pokemon\n3.Salir\n";
+    int opcionequipo{ 0 };
+    std::cin >> opcionequipo;
+
+    if (opcionequipo == 1)
+    {
+        int opcionpoke{ 0 };
+        std::cout << "Que Pokemon desea ver? : ";
+        std::cin >> opcionpoke;
+
+        getEquipoPokemon(opcionpoke);
+
+
+    }
+    else if (opcionequipo == 2)
+    {
+        Pokemon* tmp=nullptr;
+        int eleccion1{0}, eleccion2{0};
+        std::cout << "Que Pokemon desea cambiar?: ";
+        std::cin >> eleccion1;
+
+        std::cout << "con cual lo desea cambiar?: ";
+        std::cin >> eleccion1;
+
+
+        tmp = EquipoPokemonJugador[eleccion1];
+        EquipoPokemonJugador[eleccion1] = EquipoPokemonJugador[eleccion2];
+        EquipoPokemonJugador[eleccion2] = tmp;
+    }
 
 }

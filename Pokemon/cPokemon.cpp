@@ -1,8 +1,18 @@
 #include "cPokemon.h"
 #include <iostream>
 #include <string>
+#include "Sprites.h"
 
 using namespace std;
+
+int Pokemon::getnPokedex()
+{
+	return nPokedex;
+}
+void Pokemon::setnPokedex(int nPoke)
+{
+	nPokedex = nPoke;
+}
 
 int Pokemon::getNivel()
 {
@@ -197,19 +207,125 @@ void Pokemon::IngresarStats()
 	}
 }
 
-void MostrarStats(Pokemon poke)
+void Pokemon::MostrarPokemon(Pokemon *poke)
 {
+	std::string nombre = poke->getNombre();
+
 	int HP, ATK, ATKSP, DEF, SPDEF, VEL;
 
-	HP = poke.getHP();
-	ATK = poke.getATK();
-	ATKSP = poke.getSPATK();
-	DEF = poke.getDEF();
-	SPDEF = poke.getSPDEF();
-	VEL = poke.getVEL();
+	if (nombre == "Bulbasaur")
+	{
+		Sprite(SpriteBulbasaurFront, SpriteBulbasaurBack, 24);
+		setTipo("Planta");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Ivysaur")
+	{
+		Sprite(SpriteIvysaurFront, SpriteIvysaurBack, 24);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Venusaur")
+	{
+		Sprite(SpriteVenusaurFront, SpriteVenusaurBack, 23);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
+	}
+
+	else if (nombre == "Charmander")
+	{
+		Sprite(SpriteCharmanderFront, SpriteCharmanderBack, 22);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Charmeleon")
+	{
+		Sprite(SpriteCharmeleonFront, SpriteCharmeleonBack, 23);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+
+	else if (nombre == "Charizard")
+	{
+		Sprite(SpriteCharizardFront, SpriteCharizardBack, 33);
+		setTipo("Fuego/Volador");
+		setNombre(nombre);
+	}
+
+	HP = poke->getHP();
+	ATK = poke->getATK();
+	ATKSP = poke->getSPATK();
+	DEF = poke->getDEF();
+	SPDEF = poke->getSPDEF();
+	VEL = poke->getVEL();
+
+	std::cout << "1." << nombre << " / Tipo " << Tipo << " \nHP " << HP << " \nATK " << ATK <<
+	" \nATKSP " << ATKSP << " \nDEF " << DEF << " \nSPDEF " << SPDEF <<  " \nVEL " << VEL <<  std::endl;
 
 }
+void Pokemon::MostrarPkmPokedex(Pokemon* Poke, std::string Descripcion)
+{
+	std::string nombre = Poke->getNombre();
 
+	if (nombre == "Bulbasaur")
+	{
+		Sprite(SpriteBulbasaurFront, SpriteBulbasaurBack, 24);
+		setnPokedex(1);
+		setTipo("Planta");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Ivysaur")
+	{
+		Sprite(SpriteIvysaurFront, SpriteIvysaurBack, 24);
+		setnPokedex(2);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Venusaur")
+	{
+		Sprite(SpriteVenusaurFront, SpriteVenusaurBack, 23);
+		setnPokedex(3);
+		setTipo("Planta/Veneno");
+		setNombre(nombre);
+	}
+
+	else if (nombre == "Charmander")
+	{
+		Sprite(SpriteCharmanderFront, SpriteCharmanderBack, 22);
+		setnPokedex(4);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+
+
+	else if (nombre == "Charmeleon")
+	{
+		Sprite(SpriteCharmeleonFront, SpriteCharmeleonBack, 23);
+		setnPokedex(5);
+		setTipo("Fuego");
+		setNombre(nombre);
+	}
+
+	else if (nombre == "Charizard")
+	{
+		Sprite(SpriteCharizardFront, SpriteCharizardBack, 33);
+		setnPokedex(6);
+		setTipo("Fuego/Volador");
+		setNombre(nombre);
+	}
+	std::cout << Pokemon::nPokedex << "." << nombre << " / Tipo " << Tipo << " \n " << Descripcion << std::endl;
+}
+	
 void Pokemon::RegistarPoke(int nPoke,int nivel, std::string tipo, std::string nombre)
 {
 	setTipo(tipo);

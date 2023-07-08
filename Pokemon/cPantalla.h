@@ -3,6 +3,8 @@
 #include "cNPC.h"
 #include "cPokedex.h"
 #include "cPokemon.h"
+#include "cObjetos.h"
+
 
 #define MAP_SIZE 15
 
@@ -39,7 +41,7 @@ class Pantalla
         void Mapeado();
 		void handleInput();
 		void MenuInGame();
-		void MostrarPokedex(Pokedex,Pokemon*,std::string);
+		void MostrarPokedex(Pokemon*,std::string);
 		void InicializadorDeVariables();
 		void Juego();
 };

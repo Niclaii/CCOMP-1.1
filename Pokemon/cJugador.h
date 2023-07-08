@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "cPersonaje.h"
-#include "cPokemon.h"
+//#include "cPokemon.h"
 
 
 class Jugador :public Personaje
@@ -29,7 +29,9 @@ class Jugador :public Personaje
 
 		void Asignar_EquipoPokemon(Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*);
 
-		Pokemon getEquipoPokemon();
+		void MostrarEquipo();
+
+		Pokemon getEquipoPokemon(int );
 		
 		void InteraccionA();
 

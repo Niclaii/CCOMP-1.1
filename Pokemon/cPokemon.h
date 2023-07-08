@@ -8,6 +8,7 @@ class Pokemon
 private:
 
 	int Stats[6];
+	int nPokedex;
 	int	Nivel, Damage;
 	std::string Tipo, Nombre, Ataque1, Ataque2, Ataque3, Ataque4;
 
@@ -28,6 +29,7 @@ public:
 		Ataque2 = " ";
 		Ataque3 = " ";
 		Ataque4 = " ";
+		nPokedex = 0;
 	}
 	//DESTRUCTOR
 	~Pokemon()
@@ -37,6 +39,9 @@ public:
 	// SETTERS Y GETTERS --------------------------------------------------------------------------------------------------------------
 	int getNivel();
 	void setNivel(int);
+
+	int getnPokedex();
+	void setnPokedex(int);
 
 	std::string getTipo();
 	void setTipo(std::string);
@@ -83,8 +88,9 @@ public:
 
 	void IngresarStats();
 
-	void MostrarStats(Pokemon poke);
-
 	void AsignarAtaques(int);
 
+	void MostrarPokemon(Pokemon* poke);
+
+	void MostrarPkmPokedex(Pokemon*, std::string);
 };
