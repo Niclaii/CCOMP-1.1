@@ -1,12 +1,8 @@
 #include <iostream>
 #include "cJugador.h"
 
-void Jugador::Asignar_EquipoPokemon(Pokemon* poke1, Pokemon* poke2, Pokemon* poke3, Pokemon* poke4, Pokemon* poke5, Pokemon* poke6)
+void Jugador::Asignar_EquipoPokemon(Pokemon poke1, Pokemon poke2, Pokemon poke3, Pokemon poke4, Pokemon poke5, Pokemon poke6)
 {
-    for (int i = 0; i < 6; ++i)
-    {
-        EquipoPokemonJugador[i] = new Pokemon();
-    }
     EquipoPokemonJugador[0] = poke1;
     EquipoPokemonJugador[1] = poke2;
     EquipoPokemonJugador[2] = poke3;
@@ -79,13 +75,13 @@ void Jugador::InteraccionA()
 */
 Pokemon Jugador::getEquipoPokemon(int num)
 {
-    Pokemon* poke = EquipoPokemonJugador[num];
-    return (*poke);
+    Pokemon Poke = EquipoPokemonJugador[num];
+    return EquipoPokemonJugador[num];
 }
 void Jugador::MostrarEquipo()
 {
-    std::cout << "1." << EquipoPokemonJugador[0] << "2." << EquipoPokemonJugador[1] << "3." << EquipoPokemonJugador[2]
-        << "4." << EquipoPokemonJugador[3] << "5." << EquipoPokemonJugador[5] << "6." << EquipoPokemonJugador[5] <<
+    std::cout << "1." << EquipoPokemonJugador[0].getNombre() << "2." << EquipoPokemonJugador[1].getNombre() << "3." << EquipoPokemonJugador[2].getNombre()
+        << "4." << EquipoPokemonJugador[3].getNombre() << "5." << EquipoPokemonJugador[5].getNombre() << "6." << EquipoPokemonJugador[5].getNombre();
         std::cout << "Que desea hacer?\n1.Visualizar Pokemon\n2.Mover Pokemon\n3.Salir\n";
     int opcionequipo{ 0 };
     std::cin >> opcionequipo;
@@ -102,7 +98,7 @@ void Jugador::MostrarEquipo()
     }
     else if (opcionequipo == 2)
     {
-        Pokemon* tmp=nullptr;
+        Pokemon tmp;
         int eleccion1{0}, eleccion2{0};
         std::cout << "Que Pokemon desea cambiar?: ";
         std::cin >> eleccion1;

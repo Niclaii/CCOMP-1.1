@@ -6,13 +6,12 @@
 
 class Jugador :public Personaje
 {
-	private:
-	
+public:
 		int Jugador_X, Jugador_Y;
 		char Interaccion;
-		Pokemon** EquipoPokemonJugador = new Pokemon * [6];
+		Pokemon EquipoPokemonJugador[6];
 	
-	public:	
+		
 		
 		Jugador()
 		{
@@ -27,7 +26,7 @@ class Jugador :public Personaje
 		void setJugador_y(int);
 		int getJugador_y();
 
-		void Asignar_EquipoPokemon(Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*);
+		void Asignar_EquipoPokemon(Pokemon, Pokemon, Pokemon, Pokemon, Pokemon, Pokemon);
 
 		void MostrarEquipo();
 

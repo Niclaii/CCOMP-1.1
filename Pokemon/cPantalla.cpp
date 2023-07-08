@@ -85,6 +85,8 @@ void Pantalla::Juego()
     (*Charmeleonptr).IngresarStats();
     (*Charizardptr).IngresarStats();
 
+    Jugador1.Asignar_EquipoPokemon(Bulbasaur, Charizard, Venusaur, Charmeleon, Charmander, Ivysaur);
+
     while (Fin == false)
     {
         Mapeado();
@@ -145,33 +147,9 @@ void Pantalla::Juego()
                         }
                         else if (opcion == 2)
                         {
-                            std::cout << "Elige un pokemon\n1.";
-                            if (num == 1)
-                            {
-                                Jugador1.getEquipoPokemon(0);
-                                
-                            }
-                            else if (num==2)
-                            {
-                                Jugador1.getEquipoPokemon(1);
-                            }
-                            else if (num == 3)
-                            {
-                                Jugador1.getEquipoPokemon(2);
-                            }
-                            else if (num == 4)
-                            {
-                                Jugador1.getEquipoPokemon(3);
-                            }
-                            else if (num == 5)
-                            {
-                                Jugador1.getEquipoPokemon(4);
-                            }
-                            else if (num == 6)
-                            {
-                                Jugador1.getEquipoPokemon(5);
-                            }
-
+                            
+                            Jugador1.MostrarEquipo();                     
+               
                             break;
                         }
                         else if (opcion == 3)
@@ -179,31 +157,31 @@ void Pantalla::Juego()
                             int opcion2{ 0 };
                             std::cout << "Elige un Objeto\n";
                             std::cin >> opcion2;
-                            Objetos.asignarObjeto(5);
+                            Objetos.asignarObjeto();
                             Objetos.visualizarObjetos();
                             if (opcion2 == 0)
                             {
-                                Objetos.manipularObjeto(0, -1);
+                                Objetos.manipularObjeto(0 );
                             }
                             else if (opcion2 == 1)
                             {
-                                Objetos.manipularObjeto(1, -1);
+                                Objetos.manipularObjeto(1);
                             }
                             else if (opcion2 == 2)
                             {
-                                Objetos.manipularObjeto(2, -1);
+                                Objetos.manipularObjeto(2);
                             }
                             else if (opcion2 == 3)
                             {
-                                Objetos.manipularObjeto(3, -1);
+                                Objetos.manipularObjeto(3);
                             }
                             else if (opcion2 == 4)
                             {
-                                Objetos.manipularObjeto(4, -1);
+                                Objetos.manipularObjeto(4);
                             }
                             else if (opcion2 == 5)
                             {
-                                Objetos.manipularObjeto(5, -1);
+                                Objetos.manipularObjeto(5);
                             }
                             break;
                         }
