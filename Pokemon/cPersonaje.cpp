@@ -15,12 +15,9 @@ void  Personaje::Dialogo_Interaccion()
 
 };
 
-void Personaje::Asignar_EquipoPokemon(Pokemon* poke1, Pokemon* poke2, Pokemon* poke3, Pokemon* poke4, Pokemon* poke5, Pokemon* poke6)
+void Personaje::Asignar_EquipoPokemon(Pokemon poke1, Pokemon poke2, Pokemon poke3, Pokemon poke4, Pokemon poke5, Pokemon poke6)
 {
-    for (int i = 0; i < 6; ++i)
-    {
-        EquipoPokemon[i] = new Pokemon();
-    }
+
     EquipoPokemon[0] = poke1;
     EquipoPokemon[1] = poke2;
     EquipoPokemon[2] = poke3;

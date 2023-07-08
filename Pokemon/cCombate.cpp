@@ -270,7 +270,7 @@ void Combate::RealizarMovimiento(Jugador& player, Pokemon& oponente)
 
 };
 
-void Combate::Seleccion_Accion(Jugador& player,Pokemon& PokeOponente)
+void Combate::Seleccion_Accion(Jugador& player,Pokemon& PokeOponente,Objeto &bolsa)
 {
     Pokemon MiPoke = player.getEquipoPokemon(0);
 

@@ -9,7 +9,7 @@ class Combate
 {
 public:
 
-    void Seleccion_Accion(Jugador&,Pokemon&);
+    void Seleccion_Accion(Jugador&,Pokemon&,Objeto&);
 
     void BarrasDeVida(Jugador&,Pokemon&);
 

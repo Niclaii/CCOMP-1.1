@@ -8,7 +8,7 @@ class Personaje
 private:
 	std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
 
-	Pokemon** EquipoPokemon = new Pokemon * [6];
+	Pokemon EquipoPokemon [6];
 
 
 public:
@@ -34,7 +34,7 @@ public:
 
 	void Asignar_Sprite(std::string, std::string);
 
-	void Asignar_EquipoPokemon(Pokemon* , Pokemon* , Pokemon* , Pokemon* , Pokemon* , Pokemon* );
+	void Asignar_EquipoPokemon(Pokemon , Pokemon , Pokemon , Pokemon , Pokemon , Pokemon);
 
 
 };

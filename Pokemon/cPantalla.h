@@ -3,7 +3,8 @@
 #include "cNPC.h"
 #include "cPokedex.h"
 #include "cPokemon.h"
-#include "cObjetos.h"
+
+#include "cCombate.h"
 
 
 #define MAP_SIZE 15

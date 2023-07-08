@@ -5,24 +5,24 @@ void Objeto::asignarObjeto()
 {
    objetos[0] = 5   ;     //Pocion
    objetos[1] = 7   ;     //SuperPocion
-   objetos[1] = 2   ;     //Despertar
-   objetos[1] = 10  ;     //PokeBall
-   objetos[1] = 5   ;     //SuperBall
+   objetos[2] = 2   ;     //Despertar
+   objetos[3] = 10  ;     //PokeBall
+   objetos[4] = 5   ;     //SuperBall
 }
 
 void Objeto::manipularObjeto(int indice)
 {
-    if (indice >= 0 && indice < size) 
-    {
+    
+
         objetos[indice] = objetos[indice]-1; // Cambiar el valor del objeto
-    }
+        
 }
 
 void Objeto::visualizarObjetos()
 {
-  std::cout << "1.Pocion : " << objetos[0] <<"\n";
-  std::cout << "2.Super Pocion : " << objetos[2] << "\n";
-  std::cout << "3.Despertar : " << objetos[3] << "\n";
-  std::cout << "4.Poke Ball : " << objetos[4] << "\n";
-  std::cout << "5.Super Ball : " << objetos[5] << "\n";
+  std::cout << "0.Pocion : " << objetos[0] <<"\n";
+  std::cout << "1.Super Pocion : " << objetos[1] << "\n";
+  std::cout << "2.Despertar : " << objetos[2] << "\n";
+  std::cout << "3.Poke Ball : " << objetos[3] << "\n";
+  std::cout << "4.Super Ball : " << objetos[4] << "\n";
 }

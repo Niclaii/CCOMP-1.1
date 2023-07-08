@@ -55,11 +55,14 @@ void Pantalla::MostrarPokedex(Pokemon*Poke,std::string Descripcion)
 
 void Pantalla::Juego()
 {
+    std::string input;
     bool Fin = false;
+    bool primerapasada{ false };
     int Opcion{ 0 }, num{ 0 };
     Objeto Objetos;
     Jugador Jugador1;
     NPC Bot1;
+    Combate Pelea;
     Pokedex Pokedex01;
     Pokemon Bulbasaur, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard;
     Pokemon* Bulbasaurptr, * Ivysaurptr, * Venusaurptr, * Charmanderptr, * Charmeleonptr, * Charizardptr;
@@ -89,9 +92,20 @@ void Pantalla::Juego()
 
     while (Fin == false)
     {
-        Mapeado();
-        std::string input;
-        std::getline(std::cin, input);
+        if (primerapasada==false)
+        {
+            Mapeado();
+            
+            std::getline(std::cin, input);
+            primerapasada = true;
+        }
+        else
+        {
+            std::getline(std::cin, input);
+            Mapeado();
+        }
+        
+        
 
         if (!input.empty())
         {
@@ -100,7 +114,7 @@ void Pantalla::Juego()
                 while (true)
                 {
                     int opcion{ 0 };
-                    std::cout << "1.Pokedex\n2.Pokemon\n3.Bolsa\n4.Salir\n5.Cerrar Juego\n";
+                    std::cout << "1.Pokedex\n2.Pokemon\n3.Bolsa\n4.Combate\n5.Salir\n6.Cerrar Juego\n";
                     std::cin >> opcion;
                     while (true)
                     {
@@ -154,11 +168,13 @@ void Pantalla::Juego()
                         }
                         else if (opcion == 3)
                         {
+
+                            Objetos.asignarObjeto();
+                            Objetos.visualizarObjetos();
                             int opcion2{ 0 };
                             std::cout << "Elige un Objeto\n";
                             std::cin >> opcion2;
-                            Objetos.asignarObjeto();
-                            Objetos.visualizarObjetos();
+                           
                             if (opcion2 == 0)
                             {
                                 Objetos.manipularObjeto(0 );
@@ -183,13 +199,29 @@ void Pantalla::Juego()
                             {
                                 Objetos.manipularObjeto(5);
                             }
+                            Objetos.visualizarObjetos();
                             break;
                         }
                         else if (opcion == 4)
                         {
+                            while (true)
+                            {
+                                Pelea.Seleccion_Accion(Jugador1, Jugador1.EquipoPokemonJugador[0], Objetos);
+                                
+
+                            }
+                            
+
+
+
+
                             break;
                         }
                         else if (opcion == 5)
+                        {
+                            break;
+                        }
+                        else if (opcion == 6)
                         {
                             Fin = true;
                             break;
