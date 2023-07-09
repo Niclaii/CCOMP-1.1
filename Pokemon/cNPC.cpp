@@ -35,20 +35,12 @@ void NPC::Asignar_Nombre(std::string nombre) {
 	Nombre = nombre;
 }
 
-void NPC::Equipo_PokemonNPC() { // eq pk
-
-}
-
-void NPC::Asignar_EquipoPokemon(Pokemon* poke1, Pokemon* poke2, Pokemon* poke3, Pokemon* poke4, Pokemon* poke5, Pokemon* poke6)
+void NPC::Asignar_EquipoPokemon(Pokemon poke1, Pokemon poke2, Pokemon poke3, Pokemon poke4, Pokemon poke5, Pokemon poke6)
 {
-    for (int i = 0; i < 6; ++i)
-    {
-        EquipoPokemonNPC[i] = new Pokemon();
-    }
-    EquipoPokemonNPC[0] = poke1;
-    EquipoPokemonNPC[1] = poke2;
-    EquipoPokemonNPC[2] = poke3;
-    EquipoPokemonNPC[3] = poke4;
-    EquipoPokemonNPC[4] = poke5;
-    EquipoPokemonNPC[5] = poke6;
+    EquipoPokemon[0] = poke1;
+    EquipoPokemon[1] = poke2;
+    EquipoPokemon[2] = poke3;
+    EquipoPokemon[3] = poke4;
+    EquipoPokemon[4] = poke5;
+    EquipoPokemon[5] = poke6;
 };

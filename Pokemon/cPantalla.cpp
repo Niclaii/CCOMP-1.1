@@ -20,8 +20,6 @@ int Pantalla::getColumna()
     return columna;
 };
 
-
-
 void Pantalla::Mapeado()
 {
     for (int i = 0; i < MAP_SIZE; ++i) {
@@ -48,48 +46,13 @@ void Pantalla::Mapeado()
 
 void Pantalla::MostrarPokedex(Pokemon*Poke,std::string Descripcion)
 {
-    Poke->MostrarPkmPokedex(Poke, Descripcion);
+    Poke->MostrarPkmPokedex(*Poke, Descripcion);
     std::cout << "\n";
-        
 }
 
 void Pantalla::Juego()
 {
-    std::string input;
-    bool Fin = false;
-    bool primerapasada{ false };
-    int Opcion{ 0 }, num{ 0 };
-    Objeto Objetos;
-    Jugador Jugador1;
-    NPC Bot1;
-    Combate Pelea;
-    Pokedex Pokedex01;
-    Pokemon Bulbasaur, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard;
-    Pokemon* Bulbasaurptr, * Ivysaurptr, * Venusaurptr, * Charmanderptr, * Charmeleonptr, * Charizardptr;
-    Bulbasaurptr = new Pokemon;
-    Ivysaurptr = new Pokemon;
-    Venusaurptr = new Pokemon;
-    Charmanderptr = new Pokemon;
-    Charmeleonptr = new Pokemon;
-    Charizardptr = new Pokemon;
-
-
-    (*Bulbasaurptr).RegistarPoke(1, 5, "Planta", "Bulbasaur");
-    (*Ivysaurptr).RegistarPoke(2, 16, "Planta", "Ivysaur");
-    (*Venusaurptr).RegistarPoke(3, 36, "Planta/Veneno", "Venusaur");
-    (*Charmanderptr).RegistarPoke(4, 5, "Fuego", "Charmander");
-    (*Charmeleonptr).RegistarPoke(5, 16, "Fuego", "Charmeleon");
-    (*Charizardptr).RegistarPoke(6, 36, "Fuego/Volador", "Charizard");
-
-    (*Bulbasaurptr).IngresarStats();
-    (*Ivysaurptr).IngresarStats();
-    (*Venusaurptr).IngresarStats();
-    (*Charmanderptr).IngresarStats();
-    (*Charmeleonptr).IngresarStats();
-    (*Charizardptr).IngresarStats();
-
-    Jugador1.Asignar_EquipoPokemon(Bulbasaur, Charizard, Venusaur, Charmeleon, Charmander, Ivysaur);
-
+ 
     while (Fin == false)
     {
         if (primerapasada==false)
@@ -104,8 +67,6 @@ void Pantalla::Juego()
             std::getline(std::cin, input);
             Mapeado();
         }
-        
-        
 
         if (!input.empty())
         {
@@ -206,15 +167,9 @@ void Pantalla::Juego()
                         {
                             while (true)
                             {
-                                Pelea.Seleccion_Accion(Jugador1, Jugador1.EquipoPokemonJugador[0], Objetos);
-                                
-
+                                //Pelea.Seleccion_Accion(Jugador1, Jugador1.EquipoPokemon[0], Objetos);
+                                Pelea.BarrasDeVida(Jugador1, npc.EquipoPokemon[0], Objetos);
                             }
-                            
-
-
-
-
                             break;
                         }
                         else if (opcion == 5)

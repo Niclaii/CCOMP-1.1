@@ -3,12 +3,12 @@
 
 void Jugador::Asignar_EquipoPokemon(Pokemon poke1, Pokemon poke2, Pokemon poke3, Pokemon poke4, Pokemon poke5, Pokemon poke6)
 {
-    EquipoPokemonJugador[0] = poke1;
-    EquipoPokemonJugador[1] = poke2;
-    EquipoPokemonJugador[2] = poke3;
-    EquipoPokemonJugador[3] = poke4;
-    EquipoPokemonJugador[4] = poke5;
-    EquipoPokemonJugador[5] = poke6;
+    EquipoPokemon[0] = poke1;
+    EquipoPokemon[1] = poke2;
+    EquipoPokemon[2] = poke3;
+    EquipoPokemon[3] = poke4;
+    EquipoPokemon[4] = poke5;
+    EquipoPokemon[5] = poke6;
 };
 
 void Jugador::setJugador_x(int x)
@@ -75,26 +75,64 @@ void Jugador::InteraccionA()
 */
 Pokemon Jugador::getEquipoPokemon(int num)
 {
-    Pokemon Poke = EquipoPokemonJugador[num];
-    return EquipoPokemonJugador[num];
+    Pokemon Poke = EquipoPokemon[num];
+    return EquipoPokemon[num];
 }
 void Jugador::MostrarEquipo()
 {
-    std::cout << "1." << EquipoPokemonJugador[0].getNombre() << "2." << EquipoPokemonJugador[1].getNombre() << "3." << EquipoPokemonJugador[2].getNombre()
-        << "4." << EquipoPokemonJugador[3].getNombre() << "5." << EquipoPokemonJugador[5].getNombre() << "6." << EquipoPokemonJugador[5].getNombre();
-        std::cout << "Que desea hacer?\n1.Visualizar Pokemon\n2.Mover Pokemon\n3.Salir\n";
+    for (int i{ 0 }; i < 6; i++)
+    {
+        EquipoPokemon[i].AsignarAtaques(EquipoPokemon[i]);
+    }
+    
+
+    std::cout << "\n";
+    std::cout << "0." << EquipoPokemon[0].getNombre() << "\n1." << EquipoPokemon[1].getNombre() << "\n2." << EquipoPokemon[2].getNombre()
+        << "\n3." << EquipoPokemon[3].getNombre() << "\n4." << EquipoPokemon[4].getNombre() << "\n5." << EquipoPokemon[5].getNombre();
+        std::cout << "\n\nQue desea hacer?\n1.Visualizar Pokemon\n2.Mover Pokemon\n3.Salir\n";
     int opcionequipo{ 0 };
     std::cin >> opcionequipo;
+    std::cout << "\n";
 
     if (opcionequipo == 1)
-    {
+    {   
+
+        bool v{ false };
         int opcionpoke{ 0 };
-        std::cout << "Que Pokemon desea ver? : ";
-        std::cin >> opcionpoke;
+        Pokemon poke;
+        while (true)
+        {
+            if (v == false)
+            {
+                
+                std::cout << "Que Pokemon desea ver? : ";
+                std::cin >> opcionpoke;
+                poke = getEquipoPokemon(opcionpoke);
+                poke.MostrarPokemon(poke);
+                v = true;
+            }
+            else
+            {
+                
+                int opcionmenupoke{ 0 };
+                std::cout << "\n\n";
+                std::cout << "Que desea hacer?\n1.Ver Otro Pokemon\n2.Salir\n";
+                std::cin >> opcionmenupoke;
 
-        getEquipoPokemon(opcionpoke);
-
-
+                if (opcionmenupoke == 1)
+                {
+                    v = false;
+                }
+                else if(opcionmenupoke==2)
+                {
+                    break;
+                }
+                else
+                {
+                    std::cout << "Reintenta\n";
+                }
+            }
+        }
     }
     else if (opcionequipo == 2)
     {
@@ -106,10 +144,9 @@ void Jugador::MostrarEquipo()
         std::cout << "con cual lo desea cambiar?: ";
         std::cin >> eleccion1;
 
-
-        tmp = EquipoPokemonJugador[eleccion1];
-        EquipoPokemonJugador[eleccion1] = EquipoPokemonJugador[eleccion2];
-        EquipoPokemonJugador[eleccion2] = tmp;
+        tmp = EquipoPokemon[eleccion1];
+        EquipoPokemon[eleccion1] = EquipoPokemon[eleccion2];
+        EquipoPokemon[eleccion2] = tmp;
     }
 
 }

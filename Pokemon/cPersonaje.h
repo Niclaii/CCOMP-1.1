@@ -5,20 +5,20 @@
 
 class Personaje
 {
-private:
+protected:
 	std::string Sprite_Mundo, Sprite_Combate, NombrePersonaje;
 
-	Pokemon EquipoPokemon [6];
+	Pokemon EquipoPokemon[6];
 
 
 public:
 
 	Personaje()
 	{
-
 		Sprite_Mundo;
 		Sprite_Combate;
 		NombrePersonaje;
+		EquipoPokemon[6];
 	};
 
 	void setSpriteMundo();
@@ -34,7 +34,7 @@ public:
 
 	void Asignar_Sprite(std::string, std::string);
 
-	void Asignar_EquipoPokemon(Pokemon , Pokemon , Pokemon , Pokemon , Pokemon , Pokemon);
+	virtual void Asignar_EquipoPokemon(Pokemon , Pokemon , Pokemon , Pokemon , Pokemon , Pokemon);
 
 
 };

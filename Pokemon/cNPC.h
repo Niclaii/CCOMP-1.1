@@ -4,16 +4,16 @@
 //#include "cPokemon.h"
 
 
-class NPC :public Personaje
+class NPC :protected Personaje
 {
-	private:
+public:
 	
 		int NPC_X, NPC_Y;
 		std::string Interaccion;
-		Pokemon** EquipoPokemonNPC = new Pokemon * [6];
 		std::string Sprite_MundoNPC, Sprite_CombateNPC,Nombre;
+		Pokemon EquipoPokemon[6];
 
-	public:
+	
 
 		NPC()
 		{
@@ -31,14 +31,12 @@ class NPC :public Personaje
 		void setNPC_y(int);
 		int getNPC_y();
 
-		void Asignar_EquipoPokemon(Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*, Pokemon*);
+		void Asignar_EquipoPokemon(Pokemon, Pokemon, Pokemon, Pokemon, Pokemon, Pokemon);
 		
 		std::string getInteraccion();
 
 		void Asignar_Sprite(std::string, std::string);
 
 		void Asignar_Nombre(std::string);
-
-		void Equipo_PokemonNPC();
 
 };

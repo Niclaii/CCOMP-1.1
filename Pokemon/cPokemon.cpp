@@ -207,9 +207,9 @@ void Pokemon::IngresarStats()
 	}
 }
 
-void Pokemon::MostrarPokemon(Pokemon *poke)
+void Pokemon::MostrarPokemon(Pokemon poke)
 {
-	std::string nombre = poke->getNombre();
+	std::string nombre = poke.getNombre();
 
 	int HP, ATK, ATKSP, DEF, SPDEF, VEL;
 
@@ -258,20 +258,22 @@ void Pokemon::MostrarPokemon(Pokemon *poke)
 		setNombre(nombre);
 	}
 
-	HP = poke->getHP();
-	ATK = poke->getATK();
-	ATKSP = poke->getSPATK();
-	DEF = poke->getDEF();
-	SPDEF = poke->getSPDEF();
-	VEL = poke->getVEL();
+	HP = poke.getHP();
+	ATK = poke.getATK();
+	ATKSP = poke.getSPATK();
+	DEF = poke.getDEF();
+	SPDEF = poke.getSPDEF();
+	VEL = poke.getVEL();
 
 	std::cout << "1." << nombre << " / Tipo " << Tipo << " \nHP " << HP << " \nATK " << ATK <<
 	" \nATKSP " << ATKSP << " \nDEF " << DEF << " \nSPDEF " << SPDEF <<  " \nVEL " << VEL <<  std::endl;
 
+	std::cout << "1. " << poke.getATK1() << "	2. " << poke.getATK2() << "\n3. " << poke.getATK3() << "	3. "
+		<< poke.getATK4() << "\n";
 }
-void Pokemon::MostrarPkmPokedex(Pokemon* Poke, std::string Descripcion)
+void Pokemon::MostrarPkmPokedex(Pokemon Poke, std::string Descripcion)
 {
-	std::string nombre = Poke->getNombre();
+	std::string nombre = Poke.getNombre();
 
 	if (nombre == "Bulbasaur")
 	{
@@ -333,44 +335,46 @@ void Pokemon::RegistarPoke(int nPoke,int nivel, std::string tipo, std::string no
 	setNivel(nivel);
 }
 
-void Pokemon::AsignarAtaques(int num)
+void Pokemon::AsignarAtaques(Pokemon nombre)
 {
-	if (num == 1)
+	std::string name = nombre.getNombre();
+
+	if (name == "Bulbasaur")
 	{
 		setATK1("Absorber");
 		setATK2("Desarrollo");
 		setATK3("Placaje");
 		setATK4("Hoja Afilada");
 	}
-	else if (num == 2)
+	else if (name == "Ivysaur")
 	{
 		setATK1("Hoja Afilada");
 		setATK2("Drenadoras");
 		setATK3("Megaagotar");
 		setATK4("Desarrollo");
 	}
-	else if (num == 3)
+	else if (name == "Venusaur")
 	{
 		setATK1("Somnifero");
 		setATK2("Tormenta Floral");
 		setATK3("Bomba Lodo");
 		setATK4("Gigadrenado");
 	}
-	else if (num == 4)
+	else if (name == "Charmander")
 	{
 		setATK1("Ascuas");
 		setATK2("Arañazo");
 		setATK3("Malicioso");
 		setATK4("Pantalla de humo");
 	}
-	else if (num == 5)
+	else if (name == "Charmeleon")
 	{
 		setATK1("Garra Dragon");
 		setATK2("Lanzallamas");
 		setATK3("Tumba Rocas");
 		setATK4("Triturar");
 	}
-	else if (num == 6)
+	else if (name == "Venusaur")
 	{
 		setATK1("Garra Dragon");
 		setATK2("Lanzallamas");

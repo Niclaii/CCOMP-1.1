@@ -4,22 +4,19 @@
 //#include "cPokemon.h"
 
 
-class Jugador :public Personaje
+class Jugador :protected Personaje
 {
 public:
 		int Jugador_X, Jugador_Y;
 		char Interaccion;
-		Pokemon EquipoPokemonJugador[6];
-	
-		
-		
+		Pokemon EquipoPokemon[6];
 		Jugador()
 		{
 			Jugador_X = 0;
 			Jugador_Y = 0;
 			Interaccion = ' ';
-
 		};
+
 		void setJugador_x(int);
 		int getJugador_x();
 

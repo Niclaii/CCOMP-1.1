@@ -11,7 +11,7 @@ public:
 
     void Seleccion_Accion(Jugador&,Pokemon&,Objeto&);
 
-    void BarrasDeVida(Jugador&,Pokemon&);
+    void BarrasDeVida(Jugador&,Pokemon&,Objeto&);
 
     void RealizarMovimiento(Jugador&, Pokemon&);
 

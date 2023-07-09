@@ -88,9 +88,9 @@ public:
 
 	void IngresarStats();
 
-	void AsignarAtaques(int);
+	void AsignarAtaques(Pokemon);
 
-	void MostrarPokemon(Pokemon* poke);
+	void MostrarPokemon(Pokemon poke);
 
-	void MostrarPkmPokedex(Pokemon*, std::string);
+	void MostrarPkmPokedex(Pokemon, std::string);
 };
